@@ -22,4 +22,12 @@ public class Scenario {
     public Scenario (ArrayList <Quest> list){
         quest = new TreeSet<>(list);
     }
+
+    /**
+     * Affichage des scenarios dans le terminal.
+     * @return String
+     */
+    public String toString (){
+        return quest.size() + " " + quest.toString();
+    }
 }
