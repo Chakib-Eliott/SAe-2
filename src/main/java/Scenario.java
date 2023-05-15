@@ -52,6 +52,7 @@ public class Scenario {
 
     /**
      * Affichage des scenarios dans le terminal.
+     * Utilise StringBuilder pour avoir un affichage clair dans le terminal
      * @return String
      */
     public String toString (){
