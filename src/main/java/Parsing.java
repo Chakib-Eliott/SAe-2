@@ -40,7 +40,7 @@ public class Parsing {
      * @return Quest
      * @see Quest
      */
-    private static Quest questParsing(String line){
+    public static Quest questParsing(String line){
         // 1|(4, 3)|()|2|100|explorer pic de Bhanborim
         String[] data = line.split("\\|");
 
