@@ -1,16 +1,35 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * Class des quêtes
  */
-public class Quest {
-    private int id;
-    private Integer[] position;
-    private Integer[][] precondition;
-    private Integer duration;
-    private Integer xp;
-    private String title;
+public class Quest implements Comparable<Quest>{
+    /**
+     * Identifiant de la quête
+     */
+    private final int id;
+    /**
+     * Position de la quête
+     */
+     private final Integer[] position;
+    /**
+     * Précondition de la quest
+     */
+    private final Integer[][] precondition;
+    /**
+     * Durée de la quête
+     */
+     private final Integer duration;
+     /**
+     * Expérience gagnée à la fin de la quête
+     */
+    private final Integer xp;
+     /**
+     * Intitulé de la quête
+     */
+    private final String title;
 
     /**
      * Constructeur de la classe
@@ -30,4 +49,29 @@ public class Quest {
         this.title = title;
     }
 
+    /**
+     * Compare des quêtes (Quest)
+     * Retourne un entier positif si l'id de This est plus petit que celui de la quête en paramètre.
+     * Retourne 0 si elles sont en même temps
+     * @param quest the object to be compared.
+     * @return int
+     */
+    @Override
+    public int compareTo(Quest quest) {
+        return this.id - quest.id;
+    }
+
+    /**
+     * Renvoie un string contenant les informations de la quête sous la forme
+     * id position precondition duration xp title
+     * @return String
+     */
+    public String toString(){
+        return id + " | (" +
+                position[0] + "," + position[1] + ") | " +
+                Arrays.deepToString(precondition) + " | " +
+                duration + " | " +
+                xp + "xp |" +
+                title;
+    }
 }
