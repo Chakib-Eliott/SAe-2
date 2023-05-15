@@ -55,6 +55,10 @@ public class Scenario {
      * @return String
      */
     public String toString (){
-        return quest.size() + " " + quest.toString();
+        StringBuilder tostring = new StringBuilder(quest.size() + "\n");
+        for (Quest q : quest){
+            tostring.append(q.toString()).append("\n");
+        }
+        return tostring.toString();
     }
 }
