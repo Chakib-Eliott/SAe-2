@@ -18,9 +18,29 @@ public class Scenario {
      * Constructeur de la classe. Instancie le TreeSet.
      * @param list ArrayList
      * @see java.util.ArrayList
+     * @see Quest
      */
     public Scenario (ArrayList <Quest> list){
         quest = new TreeSet<>(list);
+    }
+
+    /**
+     * Ajoute une quête donné en paramètre dans le TreeSet.
+     * @param quest Quest
+     * @see Quest
+     */
+    public void addQuest (Quest quest){
+        this.quest.add(quest);
+    }
+
+    /**
+     * Ajoute les quêtes données dans la ArrayList dans le TreeSet.
+     * @param quest ArrayList <Quest>
+     * @see Quest
+     * @see java.util.ArrayList
+     */
+    public void addQuest (ArrayList <Quest> quest){
+        this.quest.addAll(quest);
     }
 
     /**
