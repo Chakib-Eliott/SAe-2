@@ -1,9 +1,8 @@
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Class des quêtes
+ * @author Eliott-B, Chakib
  */
 public class Quest implements Comparable<Quest>{
     /**
