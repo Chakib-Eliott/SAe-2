@@ -15,6 +15,13 @@ public class Scenario {
     private TreeSet <Quest> quest;
 
     /**
+     * Constructeur de la classe. Instancie le TreeSet sans objet.
+     */
+    public Scenario (){
+        quest = new TreeSet<>();
+    }
+
+    /**
      * Constructeur de la classe. Instancie le TreeSet.
      * @param list ArrayList
      * @see java.util.ArrayList
