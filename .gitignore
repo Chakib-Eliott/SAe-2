@@ -36,6 +36,7 @@ build/
 
 ### Mac OS ###
 .DS_Store
+._*
 
 ### Class Java ###
 src/main/java/playground.java
