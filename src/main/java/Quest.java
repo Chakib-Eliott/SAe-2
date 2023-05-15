@@ -73,4 +73,13 @@ public class Quest implements Comparable<Quest>{
                 xp + "xp |" +
                 title;
     }
+
+    /**
+     * Renvoie la position de la quête
+     * @return Integer[]
+     * @see Integer
+     */
+    public Integer[] getPosition() {
+        return position;
+    }
 }
