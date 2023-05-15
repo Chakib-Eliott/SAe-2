@@ -12,7 +12,7 @@ public class Scenario {
     /**
      * TreeSet de qui contient des objets de la classe Quest
      */
-    private TreeSet <Quest> quest;
+    private final TreeSet <Quest> quest;
 
     /**
      * Constructeur de la classe. Instancie le TreeSet sans objet.
