@@ -82,4 +82,12 @@ public class Quest implements Comparable<Quest>{
     public Integer[] getPosition() {
         return position;
     }
+
+    /**
+     * Renvoie l'identifiant de la quête
+     * @return int
+     */
+    public int getId() {
+        return id;
+    }
 }
