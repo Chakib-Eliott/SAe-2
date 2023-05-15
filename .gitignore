@@ -37,4 +37,5 @@ build/
 ### Mac OS ###
 .DS_Store
 
-src/main/java/Client.java
+### Class Java ###
+./src/main/java/Client.java
