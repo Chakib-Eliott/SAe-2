@@ -10,7 +10,7 @@ import java.util.TreeSet;
  */
 public class Scenario {
     /**
-     * TreeSet de qui contient des objets de la classe Quest
+     * TreeSet qui contient des objets de la classe Quest
      */
     private final TreeSet <Quest> quest;
 
@@ -61,5 +61,13 @@ public class Scenario {
             tostring.append(q.toString()).append("\n");
         }
         return tostring.toString();
+    }
+
+    /**
+     * Retourne les quêtes du scénario
+     * @return TreeSet <Quest>
+     */
+    public TreeSet<Quest> getQuests () {
+        return quest;
     }
 }
