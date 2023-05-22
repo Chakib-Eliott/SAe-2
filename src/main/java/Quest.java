@@ -61,6 +61,54 @@ public class Quest implements Comparable<Quest>{
     }
 
     /**
+     * Retourne l'ID de l'objet
+     * @return int
+     */
+    public int getId(){
+        return id;
+    }
+
+    /**
+     * Retourne la position de l'objet
+     * @return Integer[]
+     */
+    public Integer[] getPosition(){
+        return position;
+    }
+
+    /**
+     * Retourne la précondition de l'objet
+     * @return Integer [][]
+     */
+    public Integer[][] getPrecondition(){
+        return precondition;
+    }
+
+    /**
+     * Retourne la durée de l'objet
+     * @return int
+     */
+    public Integer getDuration(){
+        return duration;
+    }
+
+    /**
+     * Retourne l'expérience de l'objet
+     * @return int
+     */
+    public Integer getXp(){
+        return xp;
+    }
+
+    /**
+     * Retourne le titre de l'objet
+     * @return string
+     */
+    public String getTitle(){
+        return title;
+    }
+
+    /**
      * Renvoie un string contenant les informations de la quête sous la forme
      * id position precondition duration xp title
      * @return String
