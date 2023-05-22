@@ -70,4 +70,12 @@ public class Scenario {
     public TreeSet<Quest> getQuests () {
         return quest;
     }
+
+    /**
+     * Supprime la quête en paramètre du scénario
+     * @param quest La quête à supprimer
+     */
+    public void removeQuest(Quest quest) {
+    	this.quest.remove(quest);
+    }
 }
