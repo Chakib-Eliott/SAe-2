@@ -72,11 +72,11 @@ public class Parsing {
 
             if(Objects.equals(precondy.length, 2)) {
                 if (precondy[1].length() != 0) {
-                    precondition[0][1] = Integer.parseInt(precondy[1]);
+                    precondition[1][1] = Integer.parseInt(precondy[1]);
                 }
             }
             if (precondy[0].length() != 0) {
-                precondition[0][0] = Integer.parseInt(precondy[0]);
+                precondition[1][0] = Integer.parseInt(precondy[0]);
             }
         }
 
