@@ -1,5 +1,8 @@
 import org.junit.jupiter.api.*;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @TestMethodOrder( MethodOrderer.OrderAnnotation.class)
@@ -94,6 +97,17 @@ class ParsingTest {
         assertEquals(testQuest.getXp(), 150);
         assertEquals(testQuest.getTitle(), "explorer steppe de Dhamedur");
 
+        System.out.println("Success!\n");
+    }
+
+    @Test
+    @Order(2)
+    void parsing() throws FileNotFoundException {
+        System.out.println("parsing() test ...");
+        File testFile = new File("data"+File.separator+"scenario_0.txt");
+        Scenario testScenario = Parsing.parsing(testFile);
+        int size = testScenario.getQuest().size();
+        assertEquals(size, 5);
         System.out.println("Success!\n");
     }
 }
