@@ -51,6 +51,14 @@ public class Scenario {
     }
 
     /**
+     * Retourne le TreeSet de quête.
+     * @return TreeSet<Quest>
+     */
+    public TreeSet<Quest> getQuest(){
+        return quest;
+    }
+
+    /**
      * Affichage des scenarios dans le terminal.
      * Utilise StringBuilder pour avoir un affichage clair dans le terminal
      * @return String
