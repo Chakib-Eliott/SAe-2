@@ -70,12 +70,4 @@ public class Scenario {
         }
         return tostring.toString();
     }
-
-    /**
-     * Retourne les quêtes du scénario
-     * @return TreeSet <Quest>
-     */
-    public TreeSet<Quest> getQuests () {
-        return quest;
-    }
 }
