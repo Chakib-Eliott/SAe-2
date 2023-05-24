@@ -60,11 +60,7 @@ public class Quest implements Comparable<Quest>{
         return this.id - quest.id;
     }
 
-    /**
-     * Renvoie un string contenant les informations de la quête sous la forme
-     * id position precondition duration xp title
-     * @return String
-     */
+
 
 
     /**
@@ -108,6 +104,11 @@ public class Quest implements Comparable<Quest>{
         return precondition;
     }
 
+    /**
+     * Renvoie un string contenant les informations de la quête sous la forme
+     * id position precondition duration xp title
+     * @return String
+     */
     public String toString(){
         return id + " | (" +
                 position[0] + "," + position[1] + ") | " +
