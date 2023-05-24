@@ -37,6 +37,14 @@ public class Map {
     }
 
     /**
+     * Retourne la map de l'objet
+     * @return Object[][]
+     */
+    public Object[][] getMap(){
+        return map;
+    }
+
+    /**
      * Affichage de la carte dans le terminal, cases séparées par des virgules, les quêtes sont affichés par leurs iD
      * @return String
      */
