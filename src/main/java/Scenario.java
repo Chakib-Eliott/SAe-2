@@ -50,6 +50,42 @@ public class Scenario {
         this.quest.addAll(quest);
     }
 
+
+    /**
+     * Retourne les quêtes du scénario
+     * @return TreeSet <Quest>
+     */
+    public TreeSet<Quest> getQuest() {
+        return quest;
+    }
+
+    /**
+     * Supprime la quête en paramètre du scénario
+     *
+     * @param quest La quête à supprimer
+     */
+    public void removeQuestbyId(int quest) {
+        if(getQuestbyId(quest) != null){
+            this.quest.remove(getQuestbyId(quest));
+        }
+    }
+
+    /**
+     * Retourne la quête en fonction de son id
+     *
+     * @param quest L'id de la quête
+     * @return La quête
+     */
+    public Quest getQuestbyId(int quest) {
+        for (Quest q : this.quest){
+            if (q.getId() == quest){
+                return q;
+            }
+        }
+        return null;
+    }
+
+
     /**
      * Affichage des scenarios dans le terminal.
      * Utilise StringBuilder pour avoir un affichage clair dans le terminal
@@ -61,21 +97,5 @@ public class Scenario {
             tostring.append(q.toString()).append("\n");
         }
         return tostring.toString();
-    }
-
-    /**
-     * Retourne les quêtes du scénario
-     * @return TreeSet <Quest>
-     */
-    public TreeSet<Quest> getQuests () {
-        return quest;
-    }
-
-    /**
-     * Supprime la quête en paramètre du scénario
-     * @param quest La quête à supprimer
-     */
-    public void removeQuest(Quest quest) {
-    	this.quest.remove(quest);
     }
 }
