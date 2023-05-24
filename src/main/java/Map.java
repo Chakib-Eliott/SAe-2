@@ -16,7 +16,7 @@ public class Map {
      * @see Scenario
      */
     public Map(Scenario scenario){
-        Iterator<Quest> iterator = scenario.getQuests().iterator();
+        Iterator<Quest> iterator = scenario.getQuest().iterator();
         int maxX = 0;
         int maxY = 0;
         while(iterator.hasNext()) {
@@ -29,7 +29,7 @@ public class Map {
             }
         }
         map = new Object[maxX+1][maxY+1];
-        iterator = scenario.getQuests().iterator();
+        iterator = scenario.getQuest().iterator();
         while(iterator.hasNext()) {
             Quest quest = iterator.next();
             map[quest.getPosition()[0]][quest.getPosition()[1]] = quest;
