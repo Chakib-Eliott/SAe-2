@@ -65,14 +65,7 @@ public class Quest implements Comparable<Quest>{
      * id position precondition duration xp title
      * @return String
      */
-    public String toString(){
-        return id + " | (" +
-                position[0] + "," + position[1] + ") | " +
-                Arrays.deepToString(precondition) + " | " +
-                duration + " | " +
-                xp + "xp |" +
-                title;
-    }
+
 
     /**
      * Renvoie la position de la quête
@@ -89,5 +82,38 @@ public class Quest implements Comparable<Quest>{
      */
     public int getId() {
         return id;
+    }
+
+    /**
+     * Renvoie la durée de la quête
+     * @return int durée de la quête
+     */
+    public int getDuration() {
+        return duration;
+    }
+
+    /**
+     * Renvoie l'expérience gagnée à la fin de la quête
+     * @return int expérience gagnée à la fin de la quête
+     */
+    public int getXp() {
+        return xp;
+    }
+
+    /**
+     * Renvoie les préconditions de la quête
+     * @return Integer[][] préconditions de la quête
+     */
+    public Integer[][] getPrecondition() {
+        return precondition;
+    }
+
+    public String toString(){
+        return id + " | (" +
+                position[0] + "," + position[1] + ") | " +
+                Arrays.deepToString(precondition) + " | " +
+                duration + " | " +
+                xp + "xp |" +
+                title;
     }
 }
