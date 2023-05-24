@@ -20,6 +20,7 @@ class ParsingTest {
     @Order(1)
     void questParsing() {
         System.out.println("questParsing() test ...");
+        // Test de toutes la valeurs du scénario obtenu avec le parsing
         String line = "1|(4, 3)|()|2|100|explorer pic de Bhanborim";
         Quest testQuest = Parsing.questParsing(line);
         Integer [] position = {4,3};

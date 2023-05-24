@@ -37,7 +37,7 @@ class MapTest {
 
         Map mapTest = new Map(scenarioTest);
 
-
+        // Map à obtenir
         Object[][] map = {
                 {null,null,null,null,q3},
                 {null,q0,null,null,null},

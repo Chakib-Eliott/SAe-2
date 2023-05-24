@@ -50,15 +50,6 @@ public class Scenario {
         this.quest.addAll(quest);
     }
 
-
-    /**
-     * Retourne les quêtes du scénario
-     * @return TreeSet <Quest>
-     */
-    public TreeSet<Quest> getQuest() {
-        return quest;
-    }
-
     /**
      * Supprime la quête en paramètre du scénario
      *

@@ -60,7 +60,7 @@ public class Parsing {
             String[] precond = data[2].split("\\),");
             String[] precondx = precond[0].replaceAll("\\(", "").split(",");
             String[] precondy = precond[1].replace("(", "").replaceAll("\\)", "").split(",");
-
+            // Vérification de la taille de la première partie
             if (precondx.length == 2) {
                 if (precondx[1].length() != 0) {
                     precondition[0][1] = Integer.parseInt(precondx[1]);
@@ -69,7 +69,7 @@ public class Parsing {
             if (precondx[0].length() != 0) {
                 precondition[0][0] = Integer.parseInt(precondx[0]);
             }
-
+            // Vérification de la taille de la deuxième partie
             if(Objects.equals(precondy.length, 2)) {
                 if (precondy[1].length() != 0) {
                     precondition[1][1] = Integer.parseInt(precondy[1]);

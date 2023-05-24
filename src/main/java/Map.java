@@ -19,6 +19,7 @@ public class Map {
         Iterator<Quest> iterator = scenario.getQuest().iterator();
         int maxX = 0;
         int maxY = 0;
+        // Définition de la taille de la map
         while(iterator.hasNext()) {
             Quest quest = iterator.next();
             if (quest.getPosition()[0] > maxX) {
@@ -29,6 +30,7 @@ public class Map {
             }
         }
         map = new Object[maxX+1][maxY+1];
+        // Ajout des quêtes sur la map
         iterator = scenario.getQuest().iterator();
         while(iterator.hasNext()) {
             Quest quest = iterator.next();
