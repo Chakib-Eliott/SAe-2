@@ -26,8 +26,12 @@ public class Criterion {
      * @param solution String
      * @param type boolean
      * @param number int
+     * @see ExceptionCriterion
      */
-    public void addCriterion(String solution, int type, int number){
+    public void addCriterion(String solution, int type, int number) throws ExceptionCriterion {
+        if(!solution.equalsIgnoreCase("GLOUTONNE") || !solution.equalsIgnoreCase("SPEED RUN")){
+            throw new ExceptionCriterion(0);
+        }
         // Vérifie si la solution n'existe pas déjà
         if(solutions.get(solution) == null){
             TreeMap <Integer,Integer> map = new TreeMap<>();
@@ -48,7 +52,8 @@ public class Criterion {
      * Lance les solutions demandés avec les critères.
      * Le retour sera sous la forme :
      * {Nom scénario + type, {durée: ??, nombre quêtes: ??, déplacements: ??}}
-     * @return TreeMap<String, TreeMap <String, Integer>>
+     * @return TreeMap <String, TreeMap <String, Integer>>
+     * @see ExceptionCriterion
      */
     public TreeMap<String, TreeMap <String, Integer>> launch() throws ExceptionCriterion {
         TreeMap<String, TreeMap <String, Integer>> results = new TreeMap<>();
