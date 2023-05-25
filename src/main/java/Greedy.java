@@ -8,11 +8,12 @@ import java.util.TreeMap;
  * @see Scenario
  * @see Map
  */
-public class GreedyEff extends Solution{
+public class Greedy extends Solution{
     Map map;
     String solution; // ordre des quêtes effectuées
     int duration; // durée des déplacements (1 déplacment = 1) + somme des durées de chaque quête
     int nbQuests;
+    int type; // 0 efficace / 1 exhaustive
 
     ArrayList<String> travels; // déplacements
     /**
@@ -21,13 +22,14 @@ public class GreedyEff extends Solution{
      * @param scenario Scenario
      * @see Scenario
      */
-    public GreedyEff(Scenario scenario) {
+    public Greedy(Scenario scenario, int type) {
         super(scenario);
         map = new Map(scenario);
         duration = 0;
         nbQuests = 0;
         travels = new ArrayList<>();
-        solution = algorithm();
+        this.type = type;
+        solution = algorithm(type);
     }
 
     /**
@@ -42,12 +44,18 @@ public class GreedyEff extends Solution{
      * Algorithme glouton efficace
      * @return String : solution
      */
-    public String algorithm() {
+    public String algorithm(int type) {
         ArrayList<Integer> solution = new ArrayList<>();
         Integer[] position = {0, 0};
         int xp = 0;
         Scenario doneQuests = new Scenario(); // quêtes déjà faites
 
+        Quest finale = scenario.getQuestbyId(0); // on garde la quête finale de côté
+        // pas possible la garder de côté uniquement dans le cas de la solution
+        // exhaustive car elle n'est pas détectée dans le second if (à la fin du scénario)
+        if(type == 1){ // solution exhaustive
+            scenario.removeQuestbyId(0); // on la retire du scenario pour qu'elle ne soit pas prise en compte
+        }
         // parcours de la map et se déplacer vers la quête la plus proche
 
         // parcours du scénario pour récupérer toutes les distances entre la position et les quêtes
@@ -67,15 +75,25 @@ public class GreedyEff extends Solution{
 
             duration += qDel.getDuration(); // ajoute la durée de la quête à la durée totale
 
-            xp += qDel.getXp(); // ajoute l'xp de la quête à l'xp totale
 
+            if(qDel.getId() != 0) { // si ce n'est pas la solution fianle
+                xp += qDel.getXp(); // ajoute l'xp de la quête à l'xp totale
+            }
             travels.add(Arrays.toString(position)); // ajout du déplacement
 
             position = qDel.getPosition(); // se déplace vers la quête
 
             if(qDel.getId() == 0) { // quête 0 = quête de fin
+                travels.add(Arrays.toString(position)); // ajout du déplacement
                 break;
             }
+
+        }
+        if(type == 1){ // solution exhaustive
+            doneQuests.addQuest(finale);
+            solution.add(0);
+            duration += finale.getDuration();
+            travels.add(Arrays.toString(position));
 
         }
         this.nbQuests = doneQuests.getQuest().size();
