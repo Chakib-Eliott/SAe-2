@@ -25,7 +25,7 @@ public class GreedyEff extends Solution{
         map = new Map(scenario);
         duration = 0;
         nbQuests = 0;
-        travels = new ArrayList<Integer[][]>();
+        travels = new ArrayList<>();
         solution = algorithm();
     }
 
