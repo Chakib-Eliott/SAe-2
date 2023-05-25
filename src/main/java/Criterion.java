@@ -45,6 +45,31 @@ public class Criterion {
     }
 
     /**
+     * Lance les solutions demandés avec les critères.
+     * Le retour sera sous la forme :
+     * {Nom scénario + type, {durée: ??, nombre quêtes: ??, déplacements: ??}}
+     * @return TreeMap<String, TreeMap <String, Integer>>
+     */
+    public TreeMap<String, TreeMap <String, Integer>> launch() throws ExceptionCriterion {
+        TreeMap<String, TreeMap <String, Integer>> results = new TreeMap<>();
+        // Parcours les solutions
+        for (String solution : solutions.keySet()) {
+            // Parcours les types
+            for (boolean type : solutions.get(solution).keySet()) {
+                // Récupère le nombre
+                int number = solutions.get(solution).get(type);
+                switch (solution.toUpperCase()){
+                    case "GLOUTONNE":
+                        break;
+                    default:
+                        throw new ExceptionCriterion(0);
+                }
+            }
+        }
+        return results;
+    }
+
+    /**
      * Affiche l'objet dans le terminal
      * @return String
      */
