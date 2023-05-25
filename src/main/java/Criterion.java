@@ -8,9 +8,9 @@ import java.util.TreeMap;
 public class Criterion {
     /**
      * Map des solutions
-     * (Solution, (Meilleur/Pire, nombre de fois))
+     * (Solution, (Identifiant du type, nombre de fois))
      */
-    private TreeMap <String, TreeMap <Boolean, Integer>> solutions;
+    private TreeMap <String, TreeMap <Integer, Integer>> solutions;
 
     /**
      * Constructeur de la classe.
@@ -27,14 +27,14 @@ public class Criterion {
      * @param type boolean
      * @param number int
      */
-    public void addCriterion(String solution, boolean type, int number){
+    public void addCriterion(String solution, int type, int number){
         // Vérifie si la solution n'existe pas déjà
         if(solutions.get(solution) == null){
-            TreeMap <Boolean,Integer> map = new TreeMap<>();
+            TreeMap <Integer,Integer> map = new TreeMap<>();
             map.put(type, number);
             solutions.put(solution, map);
         }else{
-            TreeMap<Boolean, Integer> object = solutions.get(solution);
+            TreeMap<Integer, Integer> object = solutions.get(solution);
             // Vérifie si le type de cette solution n'a pas déjà été défini
             if(object.get(type) == null){
                 object.put(type, number);
@@ -55,11 +55,13 @@ public class Criterion {
         // Parcours les solutions
         for (String solution : solutions.keySet()) {
             // Parcours les types
-            for (boolean type : solutions.get(solution).keySet()) {
+            for (int type : solutions.get(solution).keySet()) {
                 // Récupère le nombre
                 int number = solutions.get(solution).get(type);
                 switch (solution.toUpperCase()){
                     case "GLOUTONNE":
+                        break;
+                    case "SPEED RUN":
                         break;
                     default:
                         throw new ExceptionCriterion(0);
