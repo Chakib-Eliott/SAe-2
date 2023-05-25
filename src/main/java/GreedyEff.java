@@ -9,7 +9,7 @@ import java.util.TreeMap;
  */
 public class GreedyEff extends Solution{
     Map map;
-    String solution; // ordre des quêtes effectués
+    String solution; // ordre des quêtes effectuées
     int duration; // durée des déplacements (1 déplacment = 1) + somme des durées de chaque quêtes
     int nbQuests;
 
