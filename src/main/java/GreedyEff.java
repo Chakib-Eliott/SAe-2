@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.TreeMap;
 
 /**
@@ -10,10 +11,10 @@ import java.util.TreeMap;
 public class GreedyEff extends Solution{
     Map map;
     String solution; // ordre des quêtes effectuées
-    int duration; // durée des déplacements (1 déplacment = 1) + somme des durées de chaque quêtes
+    int duration; // durée des déplacements (1 déplacment = 1) + somme des durées de chaque quête
     int nbQuests;
 
-    ArrayList<Integer[][]> travels; // déplacements
+    ArrayList<String> travels; // déplacements
     /**
      * Constructeur de la classe Solution
      *
@@ -68,7 +69,7 @@ public class GreedyEff extends Solution{
 
             xp += qDel.getXp(); // ajoute l'xp de la quête à l'xp totale
 
-            travels.add(new Integer[][]{position, qDel.getPosition()}); // ajout du déplacement
+            travels.add(Arrays.toString(position)); // ajout du déplacement
 
             position = qDel.getPosition(); // se déplace vers la quête
 
@@ -128,7 +129,7 @@ public class GreedyEff extends Solution{
     /**
      * Renvoie le scénario faisable à partir d'un scénario actuel, des quêtes déjà effectuées et de l'expérience
      * @param scenario Scenario de base
-     * @param doneQuests Scenario avec les quêtes déjà effectués
+     * @param doneQuests Scenario avec les quêtes déjà effectuées
      * @param xp XP au moment de la vérification
      * @return Scenario : le scénario des quêtes faisables
      */
