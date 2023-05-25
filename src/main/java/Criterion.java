@@ -43,4 +43,12 @@ public class Criterion {
             }
         }
     }
+
+    /**
+     * Affiche l'objet dans le terminal
+     * @return String
+     */
+    public String toString(){
+        return solutions.toString();
+    }
 }
