@@ -15,11 +15,14 @@ public class Greedy extends Solution{
     int nbQuests;
     int type; // 0 efficace / 1 exhaustive
 
+    int xp;
+
     ArrayList<String> travels; // déplacements
     /**
      * Constructeur de la classe Solution
      *
      * @param scenario Scenario
+     * @param type Type (0 efficace, 1 exhaustive)
      * @see Scenario
      */
     public Greedy(Scenario scenario, int type) {
@@ -75,8 +78,10 @@ public class Greedy extends Solution{
 
             duration += qDel.getDuration(); // ajoute la durée de la quête à la durée totale
 
+            duration += Map.distance(position, qDel.getPosition()); // ajoute la durée du déplacement
 
-            if(qDel.getId() != 0) { // si ce n'est pas la solution fianle
+
+            if(qDel.getId() != 0) { // si ce n'est pas la solution finale
                 xp += qDel.getXp(); // ajoute l'xp de la quête à l'xp totale
             }
             travels.add(Arrays.toString(position)); // ajout du déplacement
@@ -93,10 +98,14 @@ public class Greedy extends Solution{
             doneQuests.addQuest(finale);
             solution.add(0);
             duration += finale.getDuration();
+            duration += Map.distance(position, finale.getPosition());
+            travels.add(Arrays.toString(position));
+            position = finale.getPosition(); // se déplace vers la quête
             travels.add(Arrays.toString(position));
 
         }
         this.nbQuests = doneQuests.getQuest().size();
+        this.xp = xp;
         return solution.toString();
     }
 
