@@ -11,13 +11,18 @@ public class Criterion {
      * (Solution, (Identifiant du type, nombre de fois))
      */
     private TreeMap <String, TreeMap <Integer, Integer>> solutions;
+    /**
+     * Scénario des solutions
+     */
+    private final Scenario scenario;
 
     /**
      * Constructeur de la classe.
      * Instancie le TreeMap
      */
-    public Criterion(){
+    public Criterion(Scenario scenario){
         solutions = new TreeMap<>();
+        this.scenario = scenario;
     }
 
     /**
@@ -68,7 +73,7 @@ public class Criterion {
                 int number = solutions.get(solution).get(type);
                 switch (solution.toUpperCase()){
                     case "GLOUTONNE":
-                        break;
+                        GreedyEff greedyEff = new GreedyEff(scenario);
                     case "SPEED RUN":
                         break;
                     default:
