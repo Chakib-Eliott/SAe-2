@@ -39,6 +39,17 @@ public class Map {
     }
 
     /**
+     * Retourne la distance (arrondie à l'entier supérieur) entre deux positions
+     * @param position1 Integer[]
+     * @param position2 Integer[]
+     * @see Math
+     * @return int
+     */
+    public static int distance(Integer[] position1, Integer[] position2){
+        return (int) Math.ceil(Math.sqrt(Math.pow(position1[0]-position2[0],2)+Math.pow(position1[1]-position2[1],2)));
+    }
+
+    /**
      * Retourne la map de l'objet
      * @return Object[][]
      */

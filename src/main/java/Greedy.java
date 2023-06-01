@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.TreeMap;
 
 /**
@@ -7,19 +8,31 @@ import java.util.TreeMap;
  * @see Scenario
  * @see Map
  */
-public class GreedyEff extends Solution{
+public class Greedy extends Solution{
     Map map;
-    String solution;
+    String solution; // ordre des quêtes effectuées
+    int duration; // durée des déplacements (1 déplacment = 1) + somme des durées de chaque quête
+    int nbQuests;
+    int type; // 0 efficace / 1 exhaustive
+
+    int xp;
+
+    ArrayList<String> travels; // déplacements
     /**
      * Constructeur de la classe Solution
      *
      * @param scenario Scenario
+     * @param type Type (0 efficace, 1 exhaustive)
      * @see Scenario
      */
-    public GreedyEff(Scenario scenario) {
+    public Greedy(Scenario scenario, int type) {
         super(scenario);
         map = new Map(scenario);
-        solution = algorithm();
+        duration = 0;
+        nbQuests = 0;
+        travels = new ArrayList<>();
+        this.type = type;
+        solution = algorithm(type);
     }
 
     /**
@@ -34,41 +47,65 @@ public class GreedyEff extends Solution{
      * Algorithme glouton efficace
      * @return String : solution
      */
-    public String algorithm() {
+    public String algorithm(int type) {
         ArrayList<Integer> solution = new ArrayList<>();
         Integer[] position = {0, 0};
         int xp = 0;
-        int duree = 0; // duree des déplacements (1 déplacment = 1) + somme des durées de chaque quêtes
         Scenario doneQuests = new Scenario(); // quêtes déjà faites
 
+        Quest finale = scenario.getQuestbyId(0); // on garde la quête finale de côté
+        // pas possible la garder de côté uniquement dans le cas de la solution
+        // exhaustive car elle n'est pas détectée dans le second if (à la fin du scénario)
+        if(type == 1){ // solution exhaustive
+            scenario.removeQuestbyId(0); // on la retire du scenario pour qu'elle ne soit pas prise en compte
+        }
         // parcours de la map et se déplacer vers la quête la plus proche
 
         // parcours du scénario pour récupérer toutes les distances entre la position et les quêtes
         while(scenario.getQuest().size() > 0) { // tant qu'il reste des quêtes
 
-
             Scenario doableScenario = doableScenario(scenario, doneQuests, xp); // quêtes faisables
-
 
             int nearestQuest = nearestQuest(doableScenario, position); // quête la plus proche
 
-            // il faut vérifier que la quête est faisable
-            // il faut calculer le déplacement vers la quête (en nombre de cases (ENTIER))
-
             Quest qDel = scenario.getQuestbyId(nearestQuest); // quête à supprimer
+
             doneQuests.addQuest(qDel); // ajoute la quête à la liste des quêtes faites
+
             this.scenario.removeQuestbyId(nearestQuest); // supprime la quête du scénario
+
             solution.add(nearestQuest); // ajoute la quête à la solution
-            duree += qDel.getDuration(); // ajoute la durée de la quête à la durée totale
-            xp += qDel.getXp(); // ajoute l'xp de la quête à l'xp totale
+
+            duration += qDel.getDuration(); // ajoute la durée de la quête à la durée totale
+
+            duration += Map.distance(position, qDel.getPosition()); // ajoute la durée du déplacement
+
+
+            if(qDel.getId() != 0) { // si ce n'est pas la solution finale
+                xp += qDel.getXp(); // ajoute l'xp de la quête à l'xp totale
+            }
+            travels.add(Arrays.toString(position)); // ajout du déplacement
+
             position = qDel.getPosition(); // se déplace vers la quête
 
             if(qDel.getId() == 0) { // quête 0 = quête de fin
+                travels.add(Arrays.toString(position)); // ajout du déplacement
                 break;
             }
 
         }
+        if(type == 1){ // solution exhaustive
+            doneQuests.addQuest(finale);
+            solution.add(0);
+            duration += finale.getDuration();
+            duration += Map.distance(position, finale.getPosition());
+            travels.add(Arrays.toString(position));
+            position = finale.getPosition(); // se déplace vers la quête
+            travels.add(Arrays.toString(position));
 
+        }
+        this.nbQuests = doneQuests.getQuest().size();
+        this.xp = xp;
         return solution.toString();
     }
 
@@ -116,6 +153,13 @@ public class GreedyEff extends Solution{
         return glouton(distances);
     }
 
+    /**
+     * Renvoie le scénario faisable à partir d'un scénario actuel, des quêtes déjà effectuées et de l'expérience
+     * @param scenario Scenario de base
+     * @param doneQuests Scenario avec les quêtes déjà effectuées
+     * @param xp XP au moment de la vérification
+     * @return Scenario : le scénario des quêtes faisables
+     */
     public static Scenario doableScenario(Scenario scenario, Scenario doneQuests, int xp){
         Scenario doableScenario = new Scenario();
         for(Quest q: scenario.getQuest()) {
