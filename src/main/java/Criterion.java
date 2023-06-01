@@ -29,23 +29,26 @@ public class Criterion {
      * @see ExceptionCriterion
      */
     public void addCriterion(String solution, int type, int number) throws ExceptionCriterion {
-        if(!solution.equalsIgnoreCase("GLOUTONNE") || !solution.equalsIgnoreCase("SPEED RUN")){
+        if(solution.equalsIgnoreCase("GLOUTONNE") || solution.equalsIgnoreCase("SPEED RUN")){
+            // Vérifie si la solution n'existe pas déjà
+            if(solutions.get(solution) == null){
+                TreeMap <Integer,Integer> map = new TreeMap<>();
+                map.put(type, number);
+                solutions.put(solution, map);
+            }else{
+                TreeMap<Integer, Integer> object = solutions.get(solution);
+                // Vérifie si le type de cette solution n'a pas déjà été défini
+                if(object.get(type) == null){
+                    object.put(type, number);
+                }else{
+                    object.replace(type, object.get(type), number);
+                }
+            }
+        }else {
+            // La solution n'existe pas -> ERROR
             throw new ExceptionCriterion(0);
         }
-        // Vérifie si la solution n'existe pas déjà
-        if(solutions.get(solution) == null){
-            TreeMap <Integer,Integer> map = new TreeMap<>();
-            map.put(type, number);
-            solutions.put(solution, map);
-        }else{
-            TreeMap<Integer, Integer> object = solutions.get(solution);
-            // Vérifie si le type de cette solution n'a pas déjà été défini
-            if(object.get(type) == null){
-                object.put(type, number);
-            }else{
-                object.replace(type, object.get(type), number);
-            }
-        }
+
     }
 
     /**
@@ -69,6 +72,7 @@ public class Criterion {
                     case "SPEED RUN":
                         break;
                     default:
+                        // La solution n'existe pas -> ERROR
                         throw new ExceptionCriterion(0);
                 }
             }
