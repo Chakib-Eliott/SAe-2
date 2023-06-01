@@ -75,7 +75,6 @@ public class Greedy extends Solution{
                     duration += finale.getDuration();
                     duration += Map.distance(position, finale.getPosition());
                     travels.add(Arrays.toString(position));
-                    position = finale.getPosition();
                     break;
                 }
             }
