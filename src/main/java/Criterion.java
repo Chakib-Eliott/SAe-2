@@ -1,11 +1,14 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.TreeMap;
 
 /**
  * Classe des critères
  * @author Eliott-B
  * @see Solution
+ * @see SolutionConstants
  */
-public class Criterion {
+public class Criterion implements SolutionConstants {
     /**
      * Map des solutions
      * (Solution, (Identifiant du type, nombre de fois))
@@ -34,26 +37,24 @@ public class Criterion {
      * @see ExceptionCriterion
      */
     public void addCriterion(String solution, int type, int number) throws ExceptionCriterion {
-        if(solution.equalsIgnoreCase("GLOUTONNE") || solution.equalsIgnoreCase("SPEED RUN")){
-            // Vérifie si la solution n'existe pas déjà
-            if(solutions.get(solution) == null){
-                TreeMap <Integer,Integer> map = new TreeMap<>();
-                map.put(type, number);
-                solutions.put(solution, map);
-            }else{
-                TreeMap<Integer, Integer> object = solutions.get(solution);
-                // Vérifie si le type de cette solution n'a pas déjà été défini
-                if(object.get(type) == null){
-                    object.put(type, number);
-                }else{
-                    object.replace(type, object.get(type), number);
-                }
-            }
-        }else {
-            // La solution n'existe pas -> ERROR
+        // La solution n'existe pas -> ERROR
+        if(!Arrays.asList(SOLUTIONS_NAME).contains(solution)){
             throw new ExceptionCriterion(0);
         }
-
+        // Vérifie si la solution n'existe pas déjà
+        if(solutions.get(solution) == null){
+            TreeMap <Integer,Integer> map = new TreeMap<>();
+            map.put(type, number);
+            solutions.put(solution, map);
+        }else{
+            TreeMap<Integer, Integer> object = solutions.get(solution);
+            // Vérifie si le type de cette solution n'a pas déjà été défini
+            if(object.get(type) == null){
+                object.put(type, number);
+            }else{
+                object.replace(type, object.get(type), number);
+            }
+        }
     }
 
     /**
