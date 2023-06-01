@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.TreeMap;
 
@@ -7,6 +6,7 @@ import java.util.TreeMap;
  * @author Eliott-B
  * @see Solution
  * @see SolutionConstants
+ * @see Greedy
  */
 public class Criterion implements SolutionConstants {
     /**
@@ -63,6 +63,7 @@ public class Criterion implements SolutionConstants {
      * {Nom scénario + type, {durée: ??, nombre quêtes: ??, déplacements: ??}}
      * @return TreeMap <String, TreeMap <String, Integer>>
      * @see ExceptionCriterion
+     * @see Greedy
      */
     public TreeMap<String, TreeMap <String, Integer>> launch() throws ExceptionCriterion {
         TreeMap<String, TreeMap <String, Integer>> results = new TreeMap<>();
@@ -74,7 +75,7 @@ public class Criterion implements SolutionConstants {
                 int number = solutions.get(solution).get(type);
                 switch (solution.toUpperCase()){
                     case "GLOUTONNE":
-                        GreedyEff greedyEff = new GreedyEff(scenario);
+                        Greedy greedy = new Greedy(scenario,type);
                     case "SPEED RUN":
                         break;
                     default:
