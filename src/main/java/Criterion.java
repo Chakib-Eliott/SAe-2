@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.OptionalDouble;
 import java.util.TreeMap;
 
 /**
@@ -60,13 +62,13 @@ public class Criterion implements SolutionConstants {
     /**
      * Lance les solutions demandés avec les critères.
      * Le retour sera sous la forme :
-     * {Nom scénario + type, {durée: ??, nombre quêtes: ??, déplacements: ??}}
-     * @return TreeMap <String, TreeMap <String, Integer>>
+     * {Nom scénario + type, {durée: ??, nombre quêtes: ??, déplacements: ??, xp: ??}}
+     * @return TreeMap <String, TreeMap <String, OptionalDouble>>
      * @see ExceptionCriterion
      * @see Greedy
      */
-    public TreeMap<String, TreeMap <String, Integer>> launch() throws ExceptionCriterion {
-        TreeMap<String, TreeMap <String, Integer>> results = new TreeMap<>();
+    public TreeMap<String, TreeMap <String, OptionalDouble>> launch() throws ExceptionCriterion {
+        TreeMap<String, TreeMap<String, OptionalDouble>> results = new TreeMap<>();
         // Parcours les solutions
         for (String solution : solutions.keySet()) {
             // Parcours les types
@@ -75,7 +77,20 @@ public class Criterion implements SolutionConstants {
                 int number = solutions.get(solution).get(type);
                 switch (solution.toUpperCase()){
                     case "GLOUTONNE":
-                        Greedy greedy = new Greedy(scenario,type);
+                        ArrayList <Integer> duration = new ArrayList<>();
+                        ArrayList <Integer> quest = new ArrayList<>();
+                        ArrayList <Integer> xp = new ArrayList<>();
+                        for(int i=0; i<number; i++){
+                            Greedy greedy = new Greedy(scenario,type);
+                            duration.add(greedy.duration);
+                            quest.add(greedy.nbQuests);
+                            xp.add(greedy.xp);
+                        }
+                        TreeMap<String, OptionalDouble> tmp = new TreeMap<>();
+                        tmp.put("durée", duration.stream().mapToDouble(a -> a).average());
+                        tmp.put("nombre quêtes", quest.stream().mapToDouble(a -> a).average());
+                        tmp.put("xp", xp.stream().mapToDouble(a -> a).average());
+                        results.put(scenario.getFile().getName().replace(".txt","")+"-Gloutonne-"+type, tmp);
                     case "SPEED RUN":
                         break;
                     default:
