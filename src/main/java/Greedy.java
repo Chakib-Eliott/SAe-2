@@ -66,6 +66,20 @@ public class Greedy extends Solution{
 
             Scenario doableScenario = doableScenario(scenario, doneQuests, xp); // quêtes faisables
 
+            if(type != 1){ // si ce n'est pas la solution exhaustive
+                if(doableScenario.getQuestbyId(0) != null){
+                    // si la quête finale est faisable
+                    // on la fait
+                    doneQuests.addQuest(finale);
+                    solution.add(0);
+                    duration += finale.getDuration();
+                    duration += Map.distance(position, finale.getPosition());
+                    travels.add(Arrays.toString(position));
+                    position = finale.getPosition();
+                    break;
+                }
+            }
+
             int nearestQuest = nearestQuest(doableScenario, position); // quête la plus proche
 
             Quest qDel = scenario.getQuestbyId(nearestQuest); // quête à supprimer
@@ -193,10 +207,10 @@ public class Greedy extends Solution{
             }
 
             if(precond1 && precond2) { // si les deux préconditions sont vérifiées
-                if(q.getId() != 0) {
+                if(q.getId() != 0) { // si ce n'est pas la quête finale
                     doableScenario.addQuest(q); // ajoute la quête à la liste des quêtes faisables
-                } else {
-                    if(xp > q.getXp()) {
+                } else { // si c'est la quête finale
+                    if(xp > q.getXp()) { // si l'xp est suffisante
                         doableScenario.addQuest(q); // ajoute la quête à la liste des quêtes faisables
                     }
                 }
