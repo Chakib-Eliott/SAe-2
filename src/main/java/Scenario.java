@@ -101,6 +101,14 @@ public class Scenario implements Cloneable {
     }
 
     /**
+     * Retourne le fichier du scénario
+     * @return File
+     */
+    public File getFile(){
+        return file;
+    }
+
+    /**
      * Affichage des scenarios dans le terminal.
      * Utilise StringBuilder pour avoir un affichage clair dans le terminal
      * @return String
