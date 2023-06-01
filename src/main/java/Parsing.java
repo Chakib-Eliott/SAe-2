@@ -25,7 +25,7 @@ public class Parsing {
      * @see java.io.FileNotFoundException
      */
     public static Scenario parsing(File file) throws FileNotFoundException{
-        Scenario scenario = new Scenario();
+        Scenario scenario = new Scenario(file);
         Scanner scan = new Scanner(file);
         while(scan.hasNext()){
             // Ajout de la quête, formée dans la méthode questParsing, dans le scénario.

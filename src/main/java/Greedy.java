@@ -27,7 +27,7 @@ public class Greedy extends Solution{
      */
     public Greedy(Scenario scenario, int type) {
         super(scenario);
-        map = new Map(scenario);
+        map = new Map(scenario.clone());
         duration = 0;
         nbQuests = 0;
         travels = new ArrayList<>();

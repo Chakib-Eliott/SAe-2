@@ -12,5 +12,6 @@ public class Solution {
      * @see Scenario
      */
     public Solution(Scenario scenario){
-        this.scenario = scenario;}
+        this.scenario = scenario.clone();
+    }
 }
