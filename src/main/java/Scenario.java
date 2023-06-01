@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.TreeSet;
 
@@ -8,17 +10,29 @@ import java.util.TreeSet;
  * @see java.util.TreeSet
  * @see java.util.ArrayList
  */
-public class Scenario {
+public class Scenario implements Cloneable {
     /**
      * TreeSet qui contient des objets de la classe Quest
      */
     private final TreeSet <Quest> quest;
+    /**
+     * Fichier du scénario
+     */
+    private File file;
+
+    /**
+     * Constructeur vide sans fichier instancié.
+     */
+    public Scenario() {
+        quest = new TreeSet<>();
+    }
 
     /**
      * Constructeur de la classe. Instancie le TreeSet sans objet.
      */
-    public Scenario (){
+    public Scenario (File file){
         quest = new TreeSet<>();
+        this.file = file;
     }
 
     /**
@@ -27,8 +41,9 @@ public class Scenario {
      * @see java.util.ArrayList
      * @see Quest
      */
-    public Scenario (ArrayList <Quest> list){
+    public Scenario (ArrayList <Quest> list, File file){
         quest = new TreeSet<>(list);
+        this.file = file;
     }
 
     /**
@@ -96,5 +111,18 @@ public class Scenario {
             tostring.append(q.toString()).append("\n");
         }
         return tostring.toString();
+    }
+
+    /**
+     * Clone le scenario
+     * @return Scenario
+     */
+    @Override
+    public Scenario clone() {
+        try {
+            return Parsing.parsing(file);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
