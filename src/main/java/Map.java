@@ -46,7 +46,7 @@ public class Map {
      * @return int
      */
     public static int distance(Integer[] position1, Integer[] position2){
-        return (int) Math.ceil(Math.sqrt(Math.pow(position1[0]-position2[0],2)+Math.pow(position1[1]-position2[1],2)));
+        return Math.max(position1[0], position2[0])-Math.min(position1[0], position2[0])+Math.max(position1[1], position2[1])-Math.min(position1[1], position2[1]);
     }
 
     /**
