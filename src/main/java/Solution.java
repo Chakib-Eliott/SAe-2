@@ -113,10 +113,11 @@ public class Solution {
      * "Solution : [liste des quêtes]
      *  Durée : [durée]
      *  Distance : [distance]
-     *  Xp : [xp]"
+     *  Xp : [xp]
+     *  Nombre de quêtes : [nombre de quêtes]"
      * @return String : solution et ses caractéristiques
      */
     public String toString() {
-        return "Solution : " + solution + "\nDurée : " + duration + "\nDistance : " + travel + "\nXp : " + xp;
+        return "Solution : " + solution + "\nDurée : " + duration + "\nDistance : " + travel + "\nXp : " + xp + "\nNombre de quêtes : " + nbQuests;
     }
 }
