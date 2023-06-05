@@ -14,7 +14,7 @@ public class Quest implements Comparable<Quest> {
      */
     private final Integer[] position;
     /**
-     * Précondition de la quest
+     * Précondition de la quête
      */
     private final Integer[][] precondition;
     /**
