@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -16,7 +15,7 @@ import java.util.Scanner;
 public class Parsing {
 
     /**
-     * Sépare les données du fichier donné en paramètre et créer des scénarios.
+     * Sépare les données du fichier donné en paramètre et créé des scénarios.
      * @param file File
      * @return Scenario
      * @see Scenario
@@ -25,7 +24,7 @@ public class Parsing {
      * @see java.io.FileNotFoundException
      */
     public static Scenario parsing(File file) throws FileNotFoundException{
-        Scenario scenario = new Scenario();
+        Scenario scenario = new Scenario(file);
         Scanner scan = new Scanner(file);
         while(scan.hasNext()){
             // Ajout de la quête, formée dans la méthode questParsing, dans le scénario.
