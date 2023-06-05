@@ -32,7 +32,8 @@ public class Scenario {
     }
 
     /**
-     * Ajoute une quête donné en paramètre dans le TreeSet.
+     * Ajoute une quête donnée en paramètre dans le TreeSet.
+     *
      * @param quest Quest
      * @see Quest
      */
@@ -83,6 +84,22 @@ public class Scenario {
      */
     public TreeSet<Quest> getQuest(){
         return quest;
+    }
+
+    /**
+     * Supprime une quête du scénario
+     * @param quest Quête à supprimer
+     */
+    public void removeQuest(Quest quest) {
+        this.quest.remove(quest);
+    }
+
+    /**
+     * Renvoie si le scénario est vide ou non
+     * @return boolean
+     */
+    public boolean isEmpty(){
+        return quest.isEmpty();
     }
 
     /**
