@@ -2,14 +2,14 @@ package view;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.File;
 
 public class RPGapp extends Application {
 
     public void start(Stage stage) {
-        HBox root = new HBoxRoot();
+        VBox root = new VBoxRoot();
 
         Scene scene = new Scene(root, 900, 600);
         stage.setScene(scene);

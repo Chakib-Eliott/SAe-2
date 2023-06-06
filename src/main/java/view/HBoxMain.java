@@ -3,10 +3,11 @@ package view;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-public class HBoxRoot extends HBox {
+public class HBoxMain extends HBox {
 
-    public HBoxRoot(){
+    public HBoxMain() {
         super();
+
         // VBox des choix
         VBox choice = new VBoxChoice();
         // VBox des résultats
