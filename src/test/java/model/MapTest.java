@@ -1,3 +1,5 @@
+package model;
+
 import org.junit.jupiter.api.*;
 
 import java.io.File;

@@ -1,3 +1,4 @@
+package model;
 /**
  * Exception des critères
  * @author Eliott B

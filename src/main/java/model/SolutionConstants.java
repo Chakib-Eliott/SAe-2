@@ -1,3 +1,4 @@
+package model;
 /**
  * Interface des constantes pour les solutions.
  * @author Eliott B
