@@ -25,8 +25,16 @@ public class VBoxRoot extends VBox {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Quitter la simulation ?");
                 alert.setHeaderText("Êtes-vous sûr de vouloir quitter l'application ?");
+                // Retire les boutons par défault et met CANCEL et CLOSE
+                alert.getButtonTypes().clear();
+                alert.getButtonTypes().addAll(ButtonType.CANCEL, ButtonType.CLOSE);
+                // Met en préselectionné CANCEL
+                Button cancelButton = (Button) alert.getDialogPane().lookupButton( ButtonType.CANCEL );
+                cancelButton.setDefaultButton( true );
+
                 Optional<ButtonType> option = alert.showAndWait();
-                if(option.get() == ButtonType.OK){
+
+                if(option.get() == ButtonType.CLOSE){
                     System.exit(0);
                 }
             }
