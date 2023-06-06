@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import java.io.File;
 
 public class RPGapp extends Application {
 
@@ -15,6 +16,9 @@ public class RPGapp extends Application {
 
         stage.setTitle("RPG Simulation");
         stage.centerOnScreen();
+
+        File css = new File("asset"+ File.separator+"style.css");
+        scene.getStylesheets().add(css.toURI().toString());
 
         stage.setResizable(false);
 
