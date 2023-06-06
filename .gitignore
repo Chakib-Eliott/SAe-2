@@ -40,3 +40,4 @@ build/
 
 ### MAVEN ###
 mvnw*
+.mvn*
