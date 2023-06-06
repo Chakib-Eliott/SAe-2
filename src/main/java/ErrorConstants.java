@@ -7,6 +7,7 @@ public interface ErrorConstants {
      * Tableau des erreurs des critères
      */
     String [] CRITERION_ERROR = {
-            "Solution doesn't exist !"
+            "Solution doesn't exist !",
+            "Type doesn't exist !"
     };
 }
