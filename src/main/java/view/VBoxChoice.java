@@ -60,11 +60,15 @@ public class VBoxChoice extends VBox {
 
         // affichage du nombre de simulations
 
-        Label nbSimulationsLabel = new Label();
+        Label textNbSimulationsLabel = new Label("Nombre de simulations à ajouter :");
+
+        Label nbSimulationsLabel = new Label("Nombre de simulations à ajouter :");
+
 
         nbSimulationsLabel.textProperty().bindBidirectional(nbSimulations.valueProperty(), new NumberStringConverter());
         nbSimulationsLabel.setPrefWidth(100);
         nbSimulationsLabel.setPrefHeight(20);
+
 
         // tableau des simulations
         TableView simulations = new TableView();
@@ -221,6 +225,7 @@ public class VBoxChoice extends VBox {
                 title,
                 scenarios,
                 nbSimulations,
+                textNbSimulationsLabel,
                 nbSimulationsLabel,
                 defaultType,
                 addSimulation,
