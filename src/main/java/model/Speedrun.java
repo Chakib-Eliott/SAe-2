@@ -35,7 +35,7 @@ public class Speedrun extends Solution {
     private static ArrayList<ArrayList<Integer>> solutions(Scenario scenario, int pendingXp, ArrayList<Integer> pendingSolution, ArrayList<ArrayList<Integer>> solutions){
         Scenario scenarioEnCours = new Scenario();
         for(Integer i : pendingSolution)
-            scenarioEnCours.addQuest(scenario.getQuestbyId(i));
+            scenarioEnCours.addQuest(scenario.getQuestById(i));
         for(Quest q : doableScenario(scenario, scenarioEnCours, pendingXp).getQuest()){
             ArrayList<Integer> newSolutionEnCours = (ArrayList<Integer>) pendingSolution.clone();
             newSolutionEnCours.add(q.getId());

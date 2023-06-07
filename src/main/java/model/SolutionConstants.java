@@ -1,6 +1,4 @@
 package model;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -16,11 +14,11 @@ public interface SolutionConstants {
     /**
      * Dictionnaire des types de solution
      */
-    HashMap<String, Object[]> SOLUTIONS_TYPE = new HashMap<String, Object[]>() {{
-        put("Gloutonne efficace", new Object[] {SOLUTIONS_NAME[0], 0}); // Gloutonne efficace
-        put("Gloutonne 100%", new Object[] {SOLUTIONS_NAME[0], 1}); // Gloutonne 100%
-        put("Speedrun efficace", new Object[] {SOLUTIONS_NAME[1], 0}); // Speedrun efficace
-        put("Speedrun 100%", new Object[] {SOLUTIONS_NAME[1], 1}); // Speedrun 100%
-        put("Speedrun déplacements minimaux", new Object[] {SOLUTIONS_NAME[1], 2}); // Speedrun déplacements minimaux
+    HashMap<String, Object[]> SOLUTIONS_TYPE = new HashMap<>() {{
+        put("Gloutonne efficace", new Object[]{SOLUTIONS_NAME[0], 0}); // Gloutonne efficace
+        put("Gloutonne 100%", new Object[]{SOLUTIONS_NAME[0], 1}); // Gloutonne 100%
+        put("Speedrun efficace", new Object[]{SOLUTIONS_NAME[1], 0}); // Speedrun efficace
+        put("Speedrun 100%", new Object[]{SOLUTIONS_NAME[1], 1}); // Speedrun 100%
+        put("Speedrun déplacements minimaux", new Object[]{SOLUTIONS_NAME[1], 2}); // Speedrun déplacements minimaux
     }};
 }

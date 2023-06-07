@@ -41,7 +41,6 @@ public class Parsing {
      * @see Quest
      */
     public static Quest questParsing(String line){
-        // 1|(4, 3)|()|2|100|explorer pic de Bhanborim
         String[] data = line.split("\\|");
 
         // ID

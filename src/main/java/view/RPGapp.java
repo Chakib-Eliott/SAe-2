@@ -6,7 +6,6 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.File;
-import java.util.Objects;
 
 public class RPGapp extends Application {
 

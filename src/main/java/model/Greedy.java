@@ -41,11 +41,11 @@ public class Greedy extends Solution{
         int xp = 0;
         Scenario doneQuests = new Scenario(); // quêtes déjà faites
 
-        Quest finale = scenario.getQuestbyId(0); // on garde la quête finale de côté
+        Quest finale = scenario.getQuestById(0); // on garde la quête finale de côté
         // pas possible la garder de côté uniquement dans le cas de la solution
         // exhaustive car elle n'est pas détectée dans le second if (à la fin du scénario)
         if(type == 1){ // solution exhaustive
-            scenario.removeQuestbyId(0); // on la retire du scenario pour qu'elle ne soit pas prise en compte
+            scenario.removeQuestById(0); // on la retire du scenario pour qu'elle ne soit pas prise en compte
         }
         // parcours de la map et se déplacer vers la quête la plus proche
 
@@ -55,7 +55,7 @@ public class Greedy extends Solution{
             Scenario doableScenario = doableScenario(scenario, doneQuests, xp); // quêtes faisables
 
             if(type != 1){ // si ce n'est pas la solution exhaustive
-                if(doableScenario.getQuestbyId(0) != null){
+                if(doableScenario.getQuestById(0) != null){
                     // si la quête finale est faisable,
                     // on la fait
                     doneQuests.addQuest(finale);
@@ -68,11 +68,11 @@ public class Greedy extends Solution{
 
             int nearestQuest = nearestQuest(doableScenario, position); // quête la plus proche
 
-            Quest qDel = scenario.getQuestbyId(nearestQuest); // quête à supprimer
+            Quest qDel = scenario.getQuestById(nearestQuest); // quête à supprimer
 
             doneQuests.addQuest(qDel); // ajoute la quête à la liste des quêtes faites
 
-            scenario.removeQuestbyId(nearestQuest); // supprime la quête du scénario
+            scenario.removeQuestById(nearestQuest); // supprime la quête du scénario
 
             solution.add(nearestQuest); // ajoute la quête à la solution
 

@@ -71,9 +71,9 @@ public class Scenario implements Cloneable {
      *
      * @param quest La quête à supprimer
      */
-    public void removeQuestbyId(int quest) {
-        if(getQuestbyId(quest) != null){
-            this.quest.remove(getQuestbyId(quest));
+    public void removeQuestById(int quest) {
+        if(getQuestById(quest) != null){
+            this.quest.remove(getQuestById(quest));
         }
     }
 
@@ -83,7 +83,7 @@ public class Scenario implements Cloneable {
      * @param quest L'id de la quête
      * @return La quête
      */
-    public Quest getQuestbyId(int quest) {
+    public Quest getQuestById(int quest) {
         for (Quest q : this.quest){
             if (q.getId() == quest){
                 return q;
@@ -115,11 +115,6 @@ public class Scenario implements Cloneable {
      * @return String
      */
     public String toString (){
-//        StringBuilder tostring = new StringBuilder(quest.size() + "\n");
-//        for (Quest q : quest){
-//            tostring.append(q.toString()).append("\n");
-//        }
-//        return tostring.toString();
         return file.getName().substring(0, 1).toUpperCase() +
                 file.getName().replace(
                         ".txt", "").replace("_", " ").substring(1);

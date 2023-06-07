@@ -45,7 +45,7 @@ public class Solution {
             for(Integer i : precond[0]) {
                 // l'un des deux objets doit être dans les quêtes faites
                 if(i != null) {
-                    if(doneQuests.getQuestbyId(i) != null) { // si l'objet est dans les quêtes faites
+                    if(doneQuests.getQuestById(i) != null) { // si l'objet est dans les quêtes faites
                         precond1 = true; // la première précondition est vérifiée
                     }
                 }
@@ -55,7 +55,7 @@ public class Solution {
             for(Integer i : precond[1]) {
                 // l'un des deux objets doit être dans les quêtes faites
                 if(i != null) {
-                    if (doneQuests.getQuestbyId(i) != null) { // si l'objet est dans les quêtes faites
+                    if (doneQuests.getQuestById(i) != null) { // si l'objet est dans les quêtes faites
                         precond2 = true; // la deuxième précondition est vérifiée
                     }
                 }
@@ -94,18 +94,18 @@ public class Solution {
         int duration = 0;
         int travel = 0;
         int xp = 0;
-        duration += Map.distance(new Integer[]{0, 0}, scenario.getQuestbyId(solution.get(0)).getPosition());
-        travel += Map.distance(new Integer[]{0, 0}, scenario.getQuestbyId(solution.get(0)).getPosition());
+        duration += Map.distance(new Integer[]{0, 0}, scenario.getQuestById(solution.get(0)).getPosition());
+        travel += Map.distance(new Integer[]{0, 0}, scenario.getQuestById(solution.get(0)).getPosition());
         for(Integer i : solution){
 
             if(i != 0){
-                xp += scenario.getQuestbyId(i).getXp();}
+                xp += scenario.getQuestById(i).getXp();}
 
-            duration += scenario.getQuestbyId(i).getDuration();
+            duration += scenario.getQuestById(i).getDuration();
 
             if(!i.equals(solution.get(0))) {
-                Integer[] actuelle = scenario.getQuestbyId(i).getPosition();
-                Integer[] avant =  scenario.getQuestbyId(solution.get(solution.indexOf(i)-1)).getPosition();
+                Integer[] actuelle = scenario.getQuestById(i).getPosition();
+                Integer[] avant =  scenario.getQuestById(solution.get(solution.indexOf(i)-1)).getPosition();
                 duration += Map.distance(actuelle, avant);
                 travel += Map.distance(actuelle, avant);
             }
