@@ -71,7 +71,7 @@ public class VBoxResults extends VBox {
         save.setOnAction(VBoxRoot.getController());
         this.getChildren().add(save);
 
-        // ERROR si pas de nom entré
+        // Label vide pour avoir des confirmations après
         saveName = new Label("");
         this.getChildren().add(saveName);
     }
@@ -106,7 +106,7 @@ public class VBoxResults extends VBox {
                         solution = new Speedrun(
                                 Parsing.parsing(
                                         new File(
-                                                "data/" + simulation.getScenario().replace(" ", "_")+".txt"))
+                                                "data" + File.separator + simulation.getScenario().replace(" ", "_")+".txt"))
                                 ,(int) SolutionConstants.SOLUTIONS_TYPE.get(i)[1]);
                     }
                 }
@@ -115,7 +115,7 @@ public class VBoxResults extends VBox {
                         solution = new Greedy(
                                 Parsing.parsing(
                                         new File(
-                                                "data/" + simulation.getScenario().replace(" ", "_")+".txt"))
+                                                "data" + File.separator + simulation.getScenario().replace(" ", "_")+".txt"))
                                 ,(int) SolutionConstants.SOLUTIONS_TYPE.get(i)[1]);
                     }
                 }
