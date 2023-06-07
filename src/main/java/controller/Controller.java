@@ -4,7 +4,6 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.TableView;
 import model.Solution;
 import utils.ReadWrite;

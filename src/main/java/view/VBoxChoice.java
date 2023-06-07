@@ -6,7 +6,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.util.converter.NumberStringConverter;
-import model.Solution;
 import model.SolutionConstants;
 import java.io.File;
 import java.util.Optional;
