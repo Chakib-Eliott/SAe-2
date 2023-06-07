@@ -17,7 +17,7 @@ import java.util.Optional;
  * @see SolutionConstants
  * @see File
  */
-public class VBoxChoice extends VBox {
+public class VBoxChoice extends VBox implements SolutionConstants {
 
     /**
      * Liste des solutions à faire
@@ -110,7 +110,7 @@ public class VBoxChoice extends VBox {
                     alert.setGraphic(null);
                     alert.setContentText("Choisissez le type de solution");
 
-                    for (String type : SolutionConstants.SOLUTIONS_TYPE.keySet()) {
+                    for (String type : SOLUTIONS_TYPE.keySet()) {
                         alert.getDialogPane().getButtonTypes().add(new ButtonType(type));
                     }
 
@@ -147,7 +147,7 @@ public class VBoxChoice extends VBox {
         ComboBox<String> defaultType = new ComboBox<>();
         defaultType.getItems().add(null);
         defaultType.setPromptText("Type de solution");
-        for (String type : SolutionConstants.SOLUTIONS_TYPE.keySet()) {
+        for (String type : SOLUTIONS_TYPE.keySet()) {
             defaultType.getItems().add(type);
         }
 

@@ -16,8 +16,9 @@ import java.io.FileNotFoundException;
  * @see Parsing
  * @see File
  * @see FileNotFoundException
+ * @see SolutionConstants
  */
-public class VBoxResults extends VBox {
+public class VBoxResults extends VBox implements SolutionConstants {
 
     /**
      * Tableau des résultats
@@ -143,14 +144,14 @@ public class VBoxResults extends VBox {
                 continue;
             }
             Solution solution = null;
-            for(String i : SolutionConstants.SOLUTIONS_TYPE.keySet()) {
+            for(String i : SOLUTIONS_TYPE.keySet()) {
                 if (i.toUpperCase().contains("SPEED")) {
                     if(i.equals(simulation.getType())) {
                         solution = new Speedrun(
                                 Parsing.parsing(
                                         new File(
                                                 "data" + File.separator + simulation.getScenario().replace(" ", "_")+".txt"))
-                                ,(int) SolutionConstants.SOLUTIONS_TYPE.get(i)[1]);
+                                ,(int) SOLUTIONS_TYPE.get(i)[1]);
                     }
                 }
                 if (i.toUpperCase().contains("GLOUTON")) {
@@ -159,7 +160,7 @@ public class VBoxResults extends VBox {
                                 Parsing.parsing(
                                         new File(
                                                 "data" + File.separator + simulation.getScenario().replace(" ", "_")+".txt"))
-                                ,(int) SolutionConstants.SOLUTIONS_TYPE.get(i)[1]);
+                                ,(int) SOLUTIONS_TYPE.get(i)[1]);
                     }
                 }
             }
