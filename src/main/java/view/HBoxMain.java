@@ -1,8 +1,7 @@
 package view;
 
-import controler.Controller;
+import controller.Controller;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 
 public class HBoxMain extends HBox {
 
