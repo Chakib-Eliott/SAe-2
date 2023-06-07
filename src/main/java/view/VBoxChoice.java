@@ -169,14 +169,12 @@ public class VBoxChoice extends VBox {
                     }
                 }
             }
-            System.out.println(simulationsToDo.length);
             int i = 0;
             for (Simulation simulation : simulationsToDo) {
                 if (simulation != null) {
                     i++;
                 }
             }
-            System.out.println(i);
         });
 
         Label title = new Label("Choix de simulations");
@@ -188,25 +186,7 @@ public class VBoxChoice extends VBox {
         launchSimulations.setPrefHeight(20);
         launchSimulations.setId("launchSimulations");
         // envoyer les simulations vers VBoxResults
-        launchSimulations.setOnAction(new EventHandler<ActionEvent>() {
-            // récupérer les simulations
-//            ObservableList simulationsList = simulations.getItems();
-            // event
-            @Override
-            public void handle(ActionEvent event) {
-                // récupérer les simulations
-//                System.out.println("test");
-                addEventHandler(ActionEvent.ACTION, VBoxRoot.getController());
-            }
-        });
-
-        launchSimulations.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                launchSimulations.addEventHandler(ActionEvent.ACTION, VBoxRoot.getController());
-            }
-
-        });
+        launchSimulations.setOnAction(VBoxRoot.getController());
 
         // bouton de suppression de toutes les simulations
         Button deleteSimulation = new Button("Supprimer toutes les simulations");
