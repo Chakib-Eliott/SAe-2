@@ -22,7 +22,7 @@ public class VBoxChoice extends VBox implements SolutionConstants {
     /**
      * Liste des solutions à faire
      */
-    Simulation simulationsToDo[] = new Simulation[20];
+    Simulation[] simulationsToDo = new Simulation[20];
 
     /**
      * Constructeur de la classe
