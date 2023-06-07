@@ -72,7 +72,7 @@ public class VBoxResults extends VBox {
         save.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                save.addEventHandler(ActionEvent.ACTION, HBoxMain.getController());
+                save.addEventHandler(ActionEvent.ACTION, VBoxRoot.getController());
             }
         });
         this.getChildren().add(save);

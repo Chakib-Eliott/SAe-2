@@ -1,5 +1,6 @@
 package view;
 
+import controller.Controller;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.*;
@@ -10,6 +11,8 @@ import java.util.Objects;
 import java.util.Optional;
 
 public class VBoxRoot extends VBox {
+    private static final Controller controller = new Controller();
+    private Menu save;
 
     public VBoxRoot(){
         super();
@@ -43,7 +46,7 @@ public class VBoxRoot extends VBox {
         });
 
         // Menu des sauvegardes
-        Menu save = new Menu("Sauvegardes");
+        save = new Menu("Sauvegardes");
         // Récupère tous les fichiers dans results
         File dir = new File("results");
         File [] files = dir.listFiles();
@@ -63,5 +66,9 @@ public class VBoxRoot extends VBox {
         HBox main = new HBoxMain(5);
         this.getChildren().add(main);
 
+    }
+
+    public static Controller getController() {
+        return controller;
     }
 }

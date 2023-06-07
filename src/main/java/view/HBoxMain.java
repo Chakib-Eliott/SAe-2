@@ -5,9 +5,8 @@ import javafx.scene.layout.HBox;
 
 public class HBoxMain extends HBox {
 
-public static VBoxChoice choice;
-public static VBoxResults results;
-public static final Controller controller = new Controller();
+    private static VBoxChoice choice;
+    private static VBoxResults results;
 
     public HBoxMain(int margin) {
         super(margin);
@@ -29,9 +28,5 @@ public static final Controller controller = new Controller();
 
     public static VBoxResults getResults() {
         return results;
-    }
-
-    public static Controller getController() {
-        return controller;
     }
 }

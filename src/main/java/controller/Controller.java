@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import utils.ReadWrite;
+import view.HBoxMain;
 import view.VBoxChoice;
 import view.VBoxResults;
 import java.io.File;
@@ -15,8 +16,8 @@ public class Controller implements EventHandler {
 
     @Override
     public void handle(Event event) {
-        VBoxChoice choice = view.HBoxMain.getChoice();
-        VBoxResults results = view.HBoxMain.getResults();
+        VBoxChoice choice = HBoxMain.getChoice();
+        VBoxResults results = HBoxMain.getResults();
 
         if(event.getSource() instanceof Button) {
             try {
@@ -35,6 +36,7 @@ public class Controller implements EventHandler {
                         for(Object elt : tableView.getItems()){
                             ReadWrite.write(resultsFile, elt);
                         }
+
                     }
                 }
             } catch (FileNotFoundException e) {

@@ -197,14 +197,14 @@ public class VBoxChoice extends VBox {
             public void handle(ActionEvent event) {
                 // récupérer les simulations
 //                System.out.println("test");
-                addEventHandler(ActionEvent.ACTION, HBoxMain.getController());
+                addEventHandler(ActionEvent.ACTION, VBoxRoot.getController());
             }
         });
 
         launchSimulations.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                launchSimulations.addEventHandler(ActionEvent.ACTION, HBoxMain.getController());
+                launchSimulations.addEventHandler(ActionEvent.ACTION, VBoxRoot.getController());
             }
 
         });
