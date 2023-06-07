@@ -46,7 +46,7 @@ public class VBoxRoot extends VBox {
         bar.getMenus().addAll(quit, scenario);
         this.getChildren().add(bar);
 
-        HBox main = new HBoxMain();
+        HBox main = new HBoxMain(5);
         this.getChildren().add(main);
 
     }

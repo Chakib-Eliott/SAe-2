@@ -5,16 +5,16 @@ import javafx.scene.layout.HBox;
 
 public class HBoxMain extends HBox {
 
-public static VBoxChoice choice = new VBoxChoice();
+public static VBoxChoice choice = new VBoxChoice(5);
 public static VBoxResults results = new VBoxResults();
 public static final Controller controller = new Controller();
-    public HBoxMain() {
-        super();
+    public HBoxMain(int margin) {
+        super(margin);
 
         // VBox des choix
-        choice = new VBoxChoice();
+        //choice = new VBoxChoice(10);
         // VBox des résultats
-        results = new VBoxResults();
+        //results = new VBoxResults();
 
         choice.prefWidthProperty().bind(this.widthProperty().multiply(0.5));
         results.prefWidthProperty().bind(this.widthProperty().multiply(0.5));

@@ -16,8 +16,8 @@ public class VBoxChoice extends VBox {
 
     Simulation simulationsToDo[] = new Simulation[20];
 
-    public VBoxChoice() {
-        super();
+    public VBoxChoice(int margin) {
+        super(margin);
 
         // get all files names in "data" folder
         File folder = new File("data");
