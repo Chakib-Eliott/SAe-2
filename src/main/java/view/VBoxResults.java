@@ -64,7 +64,7 @@ public class VBoxResults extends VBox {
         textField = new TextField();
         this.getChildren().addAll(name, textField);
 
-        Button save = new Button("Sauvegarder les résultats");
+        Button save = new Button("_Sauvegarder les résultats");
         save.setPrefWidth(200);
         save.setPrefHeight(20);
         save.setId("saveResults");

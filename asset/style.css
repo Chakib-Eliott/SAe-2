@@ -66,8 +66,7 @@
     -fx-font-weight: bold;
 }
 
-
-
-
-
-
+/* Accessibilité */
+.mnemonic-underline {
+    -fx-stroke: -fx-text-base-color;
+}

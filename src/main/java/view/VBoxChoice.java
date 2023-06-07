@@ -139,7 +139,7 @@ public class VBoxChoice extends VBox {
         }
 
         // bouton d'ajout de simulation
-        Button addSimulation = new Button("Ajouter simulation");
+        Button addSimulation = new Button("_Ajouter simulation");
         addSimulation.setPrefWidth(200);
         addSimulation.setPrefHeight(20);
         addSimulation.setId("addSimulation");
@@ -181,7 +181,7 @@ public class VBoxChoice extends VBox {
         title.setId("title");
 
         // Lancer les simulations
-        Button launchSimulations = new Button("Lancer les simulations");
+        Button launchSimulations = new Button("_Lancer les simulations");
         launchSimulations.setPrefWidth(200);
         launchSimulations.setPrefHeight(20);
         launchSimulations.setId("launchSimulations");
@@ -189,7 +189,7 @@ public class VBoxChoice extends VBox {
         launchSimulations.setOnAction(VBoxRoot.getController());
 
         // bouton de suppression de toutes les simulations
-        Button deleteSimulation = new Button("Supprimer toutes les simulations");
+        Button deleteSimulation = new Button("_Supprimer toutes les simulations");
         deleteSimulation.setPrefWidth(200);
         deleteSimulation.setPrefHeight(20);
         deleteSimulation.setId("deleteSimulation");
