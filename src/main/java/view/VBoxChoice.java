@@ -1,7 +1,5 @@
 package view;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
@@ -10,11 +8,26 @@ import model.SolutionConstants;
 import java.io.File;
 import java.util.Optional;
 
+/**
+ * Classe de la fenêtre de choix
+ * @author Eliott-B, Chak
+ * @see PropertyValueFactory
+ * @see VBox
+ * @see NumberStringConverter
+ * @see SolutionConstants
+ * @see File
+ */
 public class VBoxChoice extends VBox {
 
-
+    /**
+     * Liste des solutions à faire
+     */
     Simulation simulationsToDo[] = new Simulation[20];
 
+    /**
+     * Constructeur de la classe
+     * @param margin int
+     */
     public VBoxChoice(int margin) {
         super(margin);
 
@@ -213,36 +226,77 @@ public class VBoxChoice extends VBox {
         );
     }
 
+    /**
+     * Classe de la simulation des scénarios
+     * @author Chak
+     */
     public static class Simulation {
+
+        /**
+         * Scénario concerné
+         */
         private final String scenario;
+        /**
+         * Type de la solution
+         */
         private String type = "Cliquez pour définir le type de solution";
 
+        /**
+         * Constructeur avec un scénario
+         * @param scenario String
+         */
         public Simulation(String scenario) {
             this.scenario = scenario;
         }
 
+        /**
+         * Constructeur avec un scénario et un type
+         * @param scenario String
+         * @param type String
+         */
         public Simulation(String scenario, String type) {
             this.scenario = scenario;
             this.type = type;
         }
 
+        /**
+         * Retourne le scénario
+         * @return String
+         */
         public String getScenario() {
             return scenario;
         }
 
+        /**
+         * Retourne le type
+         * @return String
+         */
         public String getType() {
             return type;
         }
 
+        /**
+         * Affecte un type
+         * @param type String
+         */
         public void setType(String type) {
             this.type = type;
         }
 
+        /**
+         * Affichage :
+         * Scenario : 'scenario' Type : 'type'
+         * @return String
+         */
         public String toString() {
             return "Scenario : " + scenario + " Type : " + type;
         }
     }
 
+    /**
+     * Retourne les simulations à faire
+     * @return Simulation[]
+     */
     public Simulation[] getSimulationsToDo() {
         return simulationsToDo;
     }

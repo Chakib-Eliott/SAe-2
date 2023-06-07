@@ -7,8 +7,22 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.File;
 
+/**
+ * Classe de l'application
+ * @author Eliott-B, Chak
+ * @see Application
+ * @see Scene
+ * @see VBox
+ * @see Stage
+ * @see File
+ * @see Image
+ */
 public class RPGapp extends Application {
 
+    /**
+     * Paramètre l'application
+     * @param stage Stage
+     */
     public void start(Stage stage) {
         VBox root = new VBoxRoot();
 
@@ -29,6 +43,10 @@ public class RPGapp extends Application {
         stage.show();
     }
 
+    /**
+     * Lance l'application
+     * @param args String []
+     */
     public static void main(String [] args) {
         Application.launch();
     }

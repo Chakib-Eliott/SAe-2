@@ -5,16 +5,37 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import model.*;
 import utils.Parsing;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 
+/**
+ * Classe de la fenêtre des résultats
+ * @author Eliott-B, Chak
+ * @see PropertyValueFactory
+ * @see VBox
+ * @see Parsing
+ * @see File
+ * @see FileNotFoundException
+ */
 public class VBoxResults extends VBox {
 
+    /**
+     * Tableau des résultats
+     */
     private TableView tableView;
+    /**
+     * Champ du nom de la sauvegarde
+     */
     private TextField textField;
+    /**
+     * Label d'information sur la confirmation de la sauvegarde
+     */
     private Label saveName;
 
+    /**
+     * Constructeur de la classe
+     * @param margin int
+     */
     public VBoxResults(int margin) {
         super(margin);
 
@@ -76,23 +97,45 @@ public class VBoxResults extends VBox {
         this.getChildren().add(saveName);
     }
 
+    /**
+     * Retourne le nom de la sauvegarde
+     * @return TextField
+     */
     public TextField getTextField(){
         return textField;
     }
 
+    /**
+     * Change le message d'information de la sauvegarde
+     * @param text String
+     * @param id String (error / do)
+     */
     public void setSaveName(String text, String id){
         saveName.setText(text);
         saveName.setId(id);
     }
 
+    /**
+     * Retourne la table des résultats
+     * @return TableView
+     */
     public TableView getTableView(){
         return tableView;
     }
 
+    /**
+     * Ajoute une solution aux résultats
+     * @param item Solution
+     */
     public void addItemToTableView(Solution item){
         tableView.getItems().add(item);
     }
 
+    /**
+     * Lance une simulation
+     * @param simulationsToDo VBoxChoice.Simulation[]
+     * @throws FileNotFoundException Erreur si le fichier n'existe pas
+     */
     public void launchSimulations(VBoxChoice.Simulation[] simulationsToDo) throws FileNotFoundException {
 
         for (VBoxChoice.Simulation simulation : simulationsToDo) {

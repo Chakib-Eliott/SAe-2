@@ -12,10 +12,32 @@ import java.io.File;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * Classe de la fenêtre principal en mode vertical
+ * @author Eliott-B, Chak
+ * @see Controller
+ * @see ActionEvent
+ * @see EventHandler
+ * @see Clipboard
+ * @see ClipboardContent
+ * @see HBox
+ * @see VBox
+ * @see File
+ */
 public class VBoxRoot extends VBox {
+
+    /**
+     * Controlleur de l'application
+     */
     private static final Controller controller = new Controller();
+    /**
+     * Menu des sauvegardes
+     */
     private static Menu save;
 
+    /**
+     * Constructeur de la classe.
+     */
     public VBoxRoot(){
         super();
 
@@ -105,15 +127,27 @@ public class VBoxRoot extends VBox {
 
     }
 
+    /**
+     * Ajoute une sauvegarde dans le menu
+     * @param item MenuItem
+     */
     public static void addSave(MenuItem item){
         item.setOnAction(VBoxRoot.getController());
         save.getItems().add(item);
     }
 
+    /**
+     * Retourne le menu de sauvegarde
+     * @return Menu
+     */
     public static Menu getSave(){
         return save;
     }
 
+    /**
+     * Retourne le controlleur
+     * @return Controller
+     */
     public static Controller getController() {
         return controller;
     }

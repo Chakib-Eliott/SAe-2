@@ -5,7 +5,6 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableView;
-import model.Greedy;
 import model.Solution;
 import utils.ReadWrite;
 import view.HBoxMain;
@@ -14,11 +13,27 @@ import view.VBoxResults;
 import view.VBoxRoot;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.util.Objects;
 
+/**
+ * Contrôleur de l'interface.
+ * @author Eliott B, Chak
+ * @see Event
+ * @see EventHandler
+ * @see Button
+ * @see MenuItem
+ * @see TableView
+ * @see model
+ * @see ReadWrite
+ * @see view
+ * @see File
+ */
 public class Controller implements EventHandler {
 
+    /**
+     * Handle
+     * @param event Event
+     */
     @Override
     public void handle(Event event) {
         VBoxChoice choice = HBoxMain.getChoice();
