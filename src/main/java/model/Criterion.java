@@ -61,7 +61,7 @@ public class Criterion implements SolutionConstants {
     }
 
     /**
-     * Lance les solutions demandés avec les critères.
+     * Lance les solutions demandées avec les critères.
      * Le retour sera sous la forme :
      * {Nom scénario + type, {durée: ??, nombre quêtes: ??, déplacements: ??, xp: ??}}
      * @return TreeMap <String, TreeMap <String, OptionalDouble>>
