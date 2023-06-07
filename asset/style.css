@@ -43,7 +43,11 @@
     -fx-selection-bar: #b4b4b4;
 }
 
-
+/* labels (title) */
+#title {
+    -fx-font-size: 1.5em;
+    -fx-font-weight: bold;
+}
 
 
 
