@@ -3,9 +3,11 @@ package controller;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import utils.ReadWrite;
 import view.VBoxChoice;
 import view.VBoxResults;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Objects;
 
@@ -23,7 +25,15 @@ public class Controller implements EventHandler {
                     results.launchSimulations(choice.getSimulationsToDo());
                 }
                 if(Objects.equals(((Button) event.getSource()).getId(), "saveResults")){
-                    System.out.println("save");
+                    if(results.getTextField().getText().equals("")){
+                        results.getErrorName().setText("Vous devez rentrer un nom pour la sauvegarde !");
+                    }else{
+                        results.getErrorName().setText("");
+                        // Récupère un fichier avec le nom qu'on a mit
+                        File resultsFile = new File("results"+File.separator+results.getTextField().getText());
+                        //ReadWrite.write(resultsFile, );
+                    }
+
                 }
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);

@@ -14,6 +14,8 @@ import java.util.ArrayList;
 public class VBoxResults extends VBox {
 
     public TableView TableResults = new TableView();
+    private TextField textField;
+    private Label errorName;
 
     public VBoxResults(int margin) {
         super(margin);
@@ -61,7 +63,7 @@ public class VBoxResults extends VBox {
 
         // FORMUMAIRE DE SAUVEGARDE
         Label name = new Label("Nom de la sauvegarde");
-        TextField textField = new TextField();
+        textField = new TextField();
         this.getChildren().addAll(name, textField);
 
         Button save = new Button("Sauvegarder les résultats");
@@ -75,6 +77,19 @@ public class VBoxResults extends VBox {
             }
         });
         this.getChildren().add(save);
+
+        // ERROR si pas de nom entré
+        errorName = new Label("");
+        errorName.setId("error");
+        this.getChildren().add(errorName);
+    }
+
+    public TextField getTextField(){
+        return textField;
+    }
+
+    public Label getErrorName(){
+        return errorName;
     }
 
     public void launchSimulations(VBoxChoice.Simulation[] simulationsToDo) throws FileNotFoundException {

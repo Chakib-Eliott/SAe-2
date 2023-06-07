@@ -40,6 +40,11 @@
     -fx-font-weight: bold;
 }
 
+/* error label */
+#error {
+    -fx-text-fill: red;
+}
+
 /* scrollbar */
 .scroll-bar:horizontal .thumb {
     -fx-background-radius: 30;
