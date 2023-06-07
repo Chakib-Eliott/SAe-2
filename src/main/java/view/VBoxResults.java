@@ -136,7 +136,7 @@ public class VBoxResults extends VBox {
      * @param simulationsToDo VBoxChoice.Simulation[]
      * @throws FileNotFoundException Erreur si le fichier n'existe pas
      */
-    public void launchSimulations(VBoxChoice.Simulation[] simulationsToDo) throws FileNotFoundException {
+    public void launchSimulations(VBoxChoice.Simulation[] simulationsToDo) throws FileNotFoundException, ExceptionSolution {
 
         for (VBoxChoice.Simulation simulation : simulationsToDo) {
             if (simulation == null) {

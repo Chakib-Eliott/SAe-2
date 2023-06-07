@@ -17,9 +17,13 @@ public class Greedy extends Solution implements Serializable {
      * @param scenario Scenario
      * @param type Type (0 efficace, 1 exhaustive)
      * @see Scenario
+     * @throws ExceptionSolution erreur de type
      */
-    public Greedy(Scenario scenario, int type) {
+    public Greedy(Scenario scenario, int type) throws ExceptionSolution {
         super(scenario);
+        if(type != 0 && type != 1){
+            throw new ExceptionSolution(0);
+        }
         solution = algorithm(scenario, type);
         Integer[] characteristics = caracteristics(solution,scenario);
         duration = characteristics[0];

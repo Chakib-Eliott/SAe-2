@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableView;
+import model.ExceptionSolution;
 import model.Solution;
 import utils.ReadWrite;
 import view.HBoxMain;
@@ -77,7 +78,7 @@ public class Controller implements EventHandler {
                         results.setSaveName("Vos simulations ont bien été sauvegardées !","do");
                     }
                 }
-            } catch (FileNotFoundException e) {
+            } catch (FileNotFoundException | ExceptionSolution e) {
                 throw new RuntimeException(e);
             }
         }

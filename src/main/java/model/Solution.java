@@ -1,13 +1,15 @@
 package model;
+
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Class qui implémente une solution à un scénario
  * @author chak
  * @see Scenario
  */
-public class Solution implements Serializable {
+public class Solution implements Serializable, SolutionConstants {
     /**
      * Scénario concerné
      */
@@ -203,8 +205,12 @@ public class Solution implements Serializable {
     /**
      * Modifie le nom de la solution
      * @param name nom
+     * @throws ExceptionSolution Erreur la solution n'existe pas
      */
-    public void setName(String name) {
+    public void setName(String name) throws ExceptionSolution {
+        if(!SOLUTIONS_TYPE.containsKey(name)){
+            throw new ExceptionSolution(0);
+        }
         this.name = name;
     }
 

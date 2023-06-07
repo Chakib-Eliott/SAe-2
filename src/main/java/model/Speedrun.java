@@ -17,9 +17,13 @@ public class Speedrun extends Solution implements Serializable {
      *             (0 : speedrun durée minimale,
      *             1 : speedrun 100% ,
      *             2 : speedrun déplacements minimaux)
+     * @throws ExceptionSolution le type n'existe pas
      */
-    public Speedrun(Scenario scenario, int type) {
+    public Speedrun(Scenario scenario, int type) throws ExceptionSolution {
         super(scenario);
+        if(type != 0 && type != 1 && type != 2){
+            throw new ExceptionSolution(0);
+        }
         java.util.Map<ArrayList<Integer>, int[]> solution =
                 bestSolution(solutions(scenario, 0, new ArrayList<>(), new ArrayList<>()), scenario, type);
         this.solution = solution.keySet().iterator().next();

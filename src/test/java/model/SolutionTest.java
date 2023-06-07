@@ -29,7 +29,7 @@ public class SolutionTest {
      */
     @Test
     @Order(1)
-    void Solution() throws FileNotFoundException {
+    void Solution() throws FileNotFoundException, ExceptionSolution {
         System.out.println("Solution() test ...");
 
         int[][][][] toCheck = {
