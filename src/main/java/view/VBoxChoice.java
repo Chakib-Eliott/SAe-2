@@ -24,7 +24,6 @@ public class VBoxChoice extends VBox {
         ComboBox<String> scenarios = new ComboBox<>();
         assert listOfFiles != null;
         for (File file : listOfFiles) {
-            System.out.println(file.getName());
             if (file.isFile()) {
                 String fileName = file.getName();
                 if (fileName.endsWith(".txt")) {
@@ -51,9 +50,8 @@ public class VBoxChoice extends VBox {
 
         // tics scroll avec la souris (1 par 1)
         // arrondir à l'entier le plus proche
-        nbSimulations.valueProperty().addListener((observable, oldValue, newValue) -> {
-            nbSimulations.setValue(Math.round(newValue.doubleValue()));
-        });
+        nbSimulations.valueProperty().addListener((observable, oldValue, newValue) ->
+                nbSimulations.setValue(Math.round(newValue.doubleValue())));
 
         // affichage du nombre de simulations
 
@@ -131,6 +129,7 @@ public class VBoxChoice extends VBox {
         Button addSimulation = new Button("Ajouter simulation");
         addSimulation.setPrefWidth(200);
         addSimulation.setPrefHeight(20);
+        addSimulation.setId("addSimulation");
         addSimulation.setOnAction(event -> {
             // récupérer le scénario sélectionné
             String scenario = scenarios.getValue();
@@ -148,7 +147,23 @@ public class VBoxChoice extends VBox {
         });
 
         Label title = new Label("Choix de simulations");
-        this.getChildren().addAll(title, scenarios, nbSimulations, nbSimulationsLabel, defaultType, addSimulation, simulations);
+
+        // Lancer les simulations
+        Button launchSimulations = new Button("Lancer les simulations");
+        launchSimulations.setPrefWidth(200);
+        launchSimulations.setPrefHeight(20);
+        launchSimulations.setId("launchSimulations");
+
+        this.getChildren().addAll(
+                title,
+                scenarios,
+                nbSimulations,
+                nbSimulationsLabel,
+                defaultType,
+                addSimulation,
+                simulations,
+                launchSimulations
+        );
     }
 
     public static class Simulation {
