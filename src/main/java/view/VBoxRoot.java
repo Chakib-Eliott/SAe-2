@@ -5,7 +5,8 @@ import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
+import java.io.File;
+import java.util.Objects;
 import java.util.Optional;
 
 public class VBoxRoot extends VBox {
@@ -41,9 +42,22 @@ public class VBoxRoot extends VBox {
             }
         });
 
-        // Menu des scénarios
-        Menu scenario = new Menu("Scénarios");
-        bar.getMenus().addAll(quit, scenario);
+        // Menu des sauvegardes
+        Menu save = new Menu("Sauvegardes");
+        // Récupère tous les fichiers dans results
+        File dir = new File("results");
+        File [] files = dir.listFiles();
+        if(files != null){
+            for(File file : files){
+                // Vérifie que ce n'est pas un fichier caché MacOS (._file)
+                if(!Objects.equals(String.format("%." + 2 + "s", file.getName()), "._")){
+                    RadioMenuItem radioMenuItem = new RadioMenuItem(file.getName().replace(".ser",""));
+                    save.getItems().add(radioMenuItem);
+                }
+            }
+        }
+
+        bar.getMenus().addAll(quit, save);
         this.getChildren().add(bar);
 
         HBox main = new HBoxMain(5);
