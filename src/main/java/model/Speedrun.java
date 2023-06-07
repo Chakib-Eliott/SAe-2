@@ -29,7 +29,6 @@ public class Speedrun extends Solution implements Serializable {
         this.nbQuests = this.solution.size();
     }
 
-
     /**
      * Renvoie la liste des solutions possibles pour un scénario
      * @param scenario scénario de base

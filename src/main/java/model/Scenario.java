@@ -3,6 +3,7 @@ import utils.Parsing;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.TreeSet;
 
@@ -13,7 +14,7 @@ import java.util.TreeSet;
  * @see java.util.TreeSet
  * @see java.util.ArrayList
  */
-public class Scenario implements Cloneable {
+public class Scenario implements Cloneable, Serializable {
     /**
      * TreeSet qui contient des objets de la classe Quest
      */

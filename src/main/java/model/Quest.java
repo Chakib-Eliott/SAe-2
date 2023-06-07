@@ -1,11 +1,12 @@
 package model;
+import java.io.Serializable;
 import java.util.Arrays;
 
 /**
  * Class des quêtes
  * @author Eliott-B, Chakib
  */
-public class Quest implements Comparable<Quest> {
+public class Quest implements Comparable<Quest>, Serializable {
     /**
      * Identifiant de la quête
      */

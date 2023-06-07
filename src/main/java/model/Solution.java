@@ -1,4 +1,5 @@
 package model;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -6,7 +7,7 @@ import java.util.ArrayList;
  * @author chak
  * @see Scenario
  */
-public class Solution {
+public class Solution implements Serializable {
     /**
      * Scénario concerné
      */
