@@ -17,6 +17,8 @@ public class Solution {
 
     int type;
 
+    String name;
+
 
 
     /**
