@@ -13,6 +13,9 @@ public class HBoxMain extends HBox {
         // VBox des résultats
         VBox results = new VBoxResults();
 
+        choice.prefWidthProperty().bind(this.widthProperty().multiply(0.5));
+        results.prefWidthProperty().bind(this.widthProperty().multiply(0.5));
+
         this.getChildren().addAll(choice, results);
     }
 }
