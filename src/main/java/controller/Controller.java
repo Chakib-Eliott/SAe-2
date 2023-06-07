@@ -3,7 +3,6 @@ package controller;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import utils.ReadWrite;
 import view.VBoxChoice;
 import view.VBoxResults;
 
@@ -21,14 +20,14 @@ public class Controller implements EventHandler {
         if(event.getSource() instanceof Button) {
             try {
                 if(Objects.equals(((Button) event.getSource()).getId(), "launchSimulations")){
-                    results.TableResults.getItems().clear();
+                    results.tableView.getItems().clear();
                     results.launchSimulations(choice.getSimulationsToDo());
                 }
                 if(Objects.equals(((Button) event.getSource()).getId(), "saveResults")){
                     if(results.getTextField().getText().equals("")){
-                        results.getErrorName().setText("Vous devez rentrer un nom pour la sauvegarde !");
+                        results.setErrorName("Vous devez rentrer un nom pour la sauvegarde !");
                     }else{
-                        results.getErrorName().setText("");
+                        results.setErrorName("");
                         // Récupère un fichier avec le nom qu'on a mit
                         File resultsFile = new File("results"+File.separator+results.getTextField().getText());
                         //ReadWrite.write(resultsFile, );

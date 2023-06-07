@@ -9,11 +9,10 @@ import model.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 
 public class VBoxResults extends VBox {
 
-    public TableView TableResults = new TableView();
+    public TableView tableView;
     private TextField textField;
     private Label errorName;
 
@@ -24,8 +23,9 @@ public class VBoxResults extends VBox {
         title.setId("title");
         this.getChildren().add(title);
 
+        tableView = new TableView();
         // tableau des résultats
-        TableResults.setPrefSize(500, 550);
+        tableView.setPrefSize(500, 550);
 
         // scénario, type, durée, nombre de quêtes, déplacements, xp
         TableColumn<VBoxChoice.Simulation, String> scenarioColumn = new TableColumn<>("Scenario");
@@ -49,8 +49,7 @@ public class VBoxResults extends VBox {
         nbQuestColumn.setPrefWidth(50);
         travelsColumn.setPrefWidth(100);
 
-
-        TableResults.getColumns().addAll(
+        tableView.getColumns().addAll(
                 scenarioColumn,
                 typeColumn,
                 durationColumn,
@@ -59,7 +58,7 @@ public class VBoxResults extends VBox {
                 xpColumn
         );
 
-        this.getChildren().add(TableResults);
+        this.getChildren().add(tableView);
 
         // FORMUMAIRE DE SAUVEGARDE
         Label name = new Label("Nom de la sauvegarde");
@@ -88,8 +87,8 @@ public class VBoxResults extends VBox {
         return textField;
     }
 
-    public Label getErrorName(){
-        return errorName;
+    public void setErrorName(String text){
+        errorName.setText(text);
     }
 
     public void launchSimulations(VBoxChoice.Simulation[] simulationsToDo) throws FileNotFoundException {
@@ -122,7 +121,7 @@ public class VBoxResults extends VBox {
             if (solution != null) {
 
                 solution.setName(simulation.getType());
-                TableResults.getItems().add(solution);
+                tableView.getItems().add(solution);
 
             }
 
