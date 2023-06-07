@@ -15,6 +15,8 @@ public class Solution {
     ArrayList<Integer> solution;
     int nbQuests;
 
+    int type;
+
 
 
     /**
@@ -107,6 +109,22 @@ public class Solution {
             }
         }
         return new Integer[]{duration, travel, xp};
+    }
+
+    /**
+     * Renvoie le scénario affecté à la solution
+     * @return Scenario
+     */
+    public Scenario getScenario() {
+        return scenario;
+    }
+
+    /**
+     * Renvoie le type de solution
+     * @return int : type
+     */
+    public int getType() {
+        return type;
     }
 
     /**
