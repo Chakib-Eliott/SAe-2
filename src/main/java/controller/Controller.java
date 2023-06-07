@@ -3,6 +3,7 @@ package controller;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.TableView;
 import utils.ReadWrite;
@@ -39,8 +40,17 @@ public class Controller implements EventHandler {
                         for(Object elt : tableView.getItems()){
                             ReadWrite.write(resultsFile, elt);
                         }
-                        RadioMenuItem radioMenuItem = new RadioMenuItem(results.getTextField().getText());
-                        VBoxRoot.addSave(radioMenuItem);
+                        // Vérifie que le fichier n'est pas déjà dans le menu
+                        boolean contain = false;
+                        for(MenuItem item : VBoxRoot.getSave().getItems()){
+                            if(Objects.equals(item.getText(), results.getTextField().getText())){
+                                contain = true;
+                            }
+                        }
+                        if(!contain){
+                            RadioMenuItem radioMenuItem = new RadioMenuItem(results.getTextField().getText());
+                            VBoxRoot.addSave(radioMenuItem);
+                        }
                         results.setSaveName("Vos simulations ont bien été sauvegardées !","do");
                     }
                 }

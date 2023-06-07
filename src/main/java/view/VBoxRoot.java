@@ -72,6 +72,10 @@ public class VBoxRoot extends VBox {
         save.getItems().add(item);
     }
 
+    public static Menu getSave(){
+        return save;
+    }
+
     public static Controller getController() {
         return controller;
     }
