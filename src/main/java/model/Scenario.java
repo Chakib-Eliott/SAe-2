@@ -61,7 +61,7 @@ public class Scenario implements Cloneable, Serializable {
 
     /**
      * Ajoute les quêtes données dans la ArrayList dans le TreeSet.
-     * @param quest ArrayList <Quest>
+     * @param quest ArrayList
      * @see Quest
      * @see java.util.ArrayList
      */
@@ -98,7 +98,7 @@ public class Scenario implements Cloneable, Serializable {
 
     /**
      * Retourne le TreeSet de quête.
-     * @return TreeSet<Quest>
+     * @return TreeSet
      */
     public TreeSet<Quest> getQuest(){
         return quest;

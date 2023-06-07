@@ -178,7 +178,7 @@ public class Solution implements Serializable {
 
     /**
      * Renvoie la liste des quêtes de la solution
-     * @return ArrayList<Integer> : liste des quêtes
+     * @return ArrayList : liste des quêtes
      */
     public ArrayList<Integer> getSolution() {
         return solution;
