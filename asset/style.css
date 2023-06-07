@@ -1,0 +1,52 @@
+/* Buttons javafx */
+/* Green button with radius */
+#launchSimulations {
+    -fx-background-color: #006300;
+    -fx-background-radius: 30;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 1em;
+    -fx-font-weight: bold;
+}
+
+#launchSimulations:hover {
+    -fx-background-color: #008000;
+}
+
+#launchSimulations:pressed {
+    -fx-background-color: #004d00;
+}
+
+#addSimulation {
+    -fx-background-color: #00218d;
+    -fx-background-radius: 30;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 1em;
+    -fx-font-weight: bold;
+}
+
+#addSimulation:hover {
+    -fx-background-color: #0041c2;
+}
+
+#addSimulation:pressed {
+    -fx-background-color: #001a73;
+}
+
+/* scrollbar */
+.scroll-bar:horizontal .thumb {
+    -fx-background-radius: 30;
+}
+
+/* table */
+.table-view {
+    -fx-background-color: #b4b4b4;
+    -fx-selection-bar: #b4b4b4;
+}
+
+
+
+
+
+
+
+
