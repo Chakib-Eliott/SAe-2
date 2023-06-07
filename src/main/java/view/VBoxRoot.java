@@ -54,8 +54,10 @@ public class VBoxRoot extends VBox {
             for(File file : files){
                 // Vérifie que ce n'est pas un fichier caché MacOS (._file)
                 if(!Objects.equals(String.format("%." + 2 + "s", file.getName()), "._")){
-                    RadioMenuItem radioMenuItem = new RadioMenuItem(file.getName().replace(".ser",""));
-                    save.getItems().add(radioMenuItem);
+                    MenuItem menuItemFile = new MenuItem(file.getName().replace(".ser",""));
+                    menuItemFile.setUserData(file);
+                    menuItemFile.setOnAction(VBoxRoot.getController());
+                    save.getItems().add(menuItemFile);
                 }
             }
         }
@@ -68,7 +70,8 @@ public class VBoxRoot extends VBox {
 
     }
 
-    public static void addSave(RadioMenuItem item){
+    public static void addSave(MenuItem item){
+        item.setOnAction(VBoxRoot.getController());
         save.getItems().add(item);
     }
 

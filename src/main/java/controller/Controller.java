@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.TableView;
+import model.Solution;
 import utils.ReadWrite;
 import view.HBoxMain;
 import view.VBoxChoice;
@@ -25,9 +26,10 @@ public class Controller implements EventHandler {
         if(event.getSource() instanceof Button) {
             try {
                 if(Objects.equals(((Button) event.getSource()).getId(), "launchSimulations")){
-                    results.tableView.getItems().clear();
+                    results.getTableView().getItems().clear();
                     results.launchSimulations(choice.getSimulationsToDo());
                 }
+
                 if(Objects.equals(((Button) event.getSource()).getId(), "saveResults")) {
                     if (results.getTextField().getText().equals("")) {
                         results.setSaveName("Vous devez rentrer un nom pour la sauvegarde !","error");
@@ -48,8 +50,9 @@ public class Controller implements EventHandler {
                             }
                         }
                         if(!contain){
-                            RadioMenuItem radioMenuItem = new RadioMenuItem(results.getTextField().getText());
-                            VBoxRoot.addSave(radioMenuItem);
+                            MenuItem menuItemFile = new MenuItem(results.getTextField().getText());
+                            menuItemFile.setUserData(resultsFile);
+                            VBoxRoot.addSave(menuItemFile);
                         }
                         results.setSaveName("Vos simulations ont bien été sauvegardées !","do");
                     }
@@ -57,6 +60,13 @@ public class Controller implements EventHandler {
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
             }
+        }
+
+        if(event.getSource() instanceof MenuItem){
+            results.getTableView().getItems().clear();
+            System.out.println(((MenuItem)event.getSource()).getUserData());
+            Solution solutions = (Solution) ReadWrite.read(((File)((MenuItem)event.getSource()).getUserData()));
+            results.addItemToTableView(solutions);
         }
     }
 }

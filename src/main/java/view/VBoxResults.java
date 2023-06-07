@@ -12,7 +12,7 @@ import java.io.FileNotFoundException;
 
 public class VBoxResults extends VBox {
 
-    public TableView tableView;
+    private TableView tableView;
     private TextField textField;
     private Label saveName;
 
@@ -69,12 +69,7 @@ public class VBoxResults extends VBox {
         save.setPrefWidth(200);
         save.setPrefHeight(20);
         save.setId("saveResults");
-        save.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                save.addEventHandler(ActionEvent.ACTION, VBoxRoot.getController());
-            }
-        });
+        save.setOnAction(VBoxRoot.getController());
         this.getChildren().add(save);
 
         // ERROR si pas de nom entré
@@ -93,6 +88,10 @@ public class VBoxResults extends VBox {
 
     public TableView getTableView(){
         return tableView;
+    }
+
+    public void addItemToTableView(Solution item){
+        tableView.getItems().add(item);
     }
 
     public void launchSimulations(VBoxChoice.Simulation[] simulationsToDo) throws FileNotFoundException {
