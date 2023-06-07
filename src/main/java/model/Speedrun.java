@@ -1,8 +1,13 @@
 package model;
+
 import java.util.*;
 
+/**
+ * Classe de la solution Speed Run
+ * @author chak
+ * @see Solution
+ */
 public class Speedrun extends Solution {
-
 
     /**
      * Solution optimisée pour le speedrun (optimale en termes de durée)

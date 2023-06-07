@@ -7,16 +7,34 @@ import java.util.ArrayList;
  * @see Scenario
  */
 public class Solution {
+    /**
+     * Scénario concerné
+     */
     Scenario scenario;
-
+    /**
+     * Durée qu'a prit la solution
+     */
     Integer duration = 0;
+    /**
+     * Expérience obtenu
+     */
     int xp = 0;
+    /**
+     * Nombre de déplacements
+     */
     int travel = 0;
     ArrayList<Integer> solution;
+    /**
+     * Nombre de quêtes faites
+     */
     int nbQuests;
-
+    /**
+     * Type de la solution
+     */
     int type;
-
+    /**
+     * Nom de la solution
+     */
     String name;
 
 
@@ -27,7 +45,8 @@ public class Solution {
      * @see Scenario
      */
     public Solution(Scenario scenario){
-        this.scenario = scenario;}
+        this.scenario = scenario;
+    }
 
     /**
      * Renvoie le scénario faisable à partir d'un scénario actuel, des quêtes déjà effectuées et de l'expérience

@@ -1,12 +1,12 @@
 package model;
+
 import java.util.ArrayList;
 import java.util.TreeMap;
 
 /**
- * Class qui implémente une solution gloutonne efficace à un scénario
+ * Classe de la solution Gloutonne
  * @author chak
- * @see Scenario
- * @see Map
+ * @see Solution
  */
 public class Greedy extends Solution{
 
