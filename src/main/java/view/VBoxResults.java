@@ -1,5 +1,7 @@
 package view;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
@@ -65,7 +67,13 @@ public class VBoxResults extends VBox {
         Button save = new Button("Sauvegarder les résultats");
         save.setPrefWidth(200);
         save.setPrefHeight(20);
-        save.setId("launchSimulations");
+        save.setId("saveResults");
+        save.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                save.addEventHandler(ActionEvent.ACTION, HBoxMain.getController());
+            }
+        });
         this.getChildren().add(save);
     }
 
