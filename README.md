@@ -1,7 +1,7 @@
 # RPG Simulation
 (SAé 2)  
 
-Auteur : Eliott-B, Chak  
+Auteur : Eliott, Chakib  
 Groupe : Inf1-C  
 
 ## Rapports
