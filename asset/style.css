@@ -32,6 +32,14 @@
     -fx-background-color: #001a73;
 }
 
+#deleteSimulation {
+    -fx-background-color: #8c0000;
+    -fx-background-radius: 30;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 0.9em;
+    -fx-font-weight: bold;
+}
+
 /* scrollbar */
 .scroll-bar:horizontal .thumb {
     -fx-background-radius: 30;

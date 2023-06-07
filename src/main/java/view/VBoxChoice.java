@@ -205,6 +205,18 @@ public class VBoxChoice extends VBox {
 
         });
 
+        // bouton de suppression de toutes les simulations
+        Button deleteSimulation = new Button("Supprimer toutes les simulations");
+        deleteSimulation.setPrefWidth(200);
+        deleteSimulation.setPrefHeight(20);
+        deleteSimulation.setId("deleteSimulation");
+        deleteSimulation.setOnAction(event -> {
+            simulations.getItems().clear();
+            for (int i = 0; i < simulationsToDo.length; i++) {
+                simulationsToDo[i] = null;
+            }
+        });
+
         this.getChildren().addAll(
                 title,
                 scenarios,
@@ -213,7 +225,7 @@ public class VBoxChoice extends VBox {
                 defaultType,
                 addSimulation,
                 simulations,
-                launchSimulations
+                launchSimulations, deleteSimulation
         );
     }
 
