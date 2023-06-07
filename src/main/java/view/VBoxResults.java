@@ -1,8 +1,6 @@
 package view;
 
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import model.*;
@@ -15,16 +13,14 @@ public class VBoxResults extends VBox {
 
     public TableView TableResults = new TableView();
 
-    public VBoxResults() {
-        super();
+    public VBoxResults(int margin) {
+        super(margin);
+
         Label title = new Label("Résultats des simulations");
         title.setId("title");
         this.getChildren().add(title);
 
-
         // tableau des résultats
-
-
         TableResults.setPrefSize(500, 550);
 
         // scénario, type, durée, nombre de quêtes, déplacements, xp
@@ -61,9 +57,16 @@ public class VBoxResults extends VBox {
 
         this.getChildren().add(TableResults);
 
+        // FORMUMAIRE DE SAUVEGARDE
+        Label name = new Label("Nom de la sauvegarde");
+        TextField textField = new TextField();
+        this.getChildren().addAll(name, textField);
 
-
-
+        Button save = new Button("Sauvegarder les résultats");
+        save.setPrefWidth(200);
+        save.setPrefHeight(20);
+        save.setId("launchSimulations");
+        this.getChildren().add(save);
     }
 
     public void launchSimulations(VBoxChoice.Simulation[] simulationsToDo) throws FileNotFoundException {
