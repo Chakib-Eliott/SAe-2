@@ -40,10 +40,14 @@
     -fx-font-weight: bold;
 }
 
-/* error label */
+/* name save label */
 #error {
     -fx-text-fill: red;
 }
+
+#do {
+     -fx-text-fill: green;
+ }
 
 /* scrollbar */
 .scroll-bar:horizontal .thumb {

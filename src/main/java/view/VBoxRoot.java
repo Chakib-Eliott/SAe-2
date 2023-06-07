@@ -12,7 +12,7 @@ import java.util.Optional;
 
 public class VBoxRoot extends VBox {
     private static final Controller controller = new Controller();
-    private Menu save;
+    private static Menu save;
 
     public VBoxRoot(){
         super();
@@ -66,6 +66,10 @@ public class VBoxRoot extends VBox {
         HBox main = new HBoxMain(5);
         this.getChildren().add(main);
 
+    }
+
+    public static void addSave(RadioMenuItem item){
+        save.getItems().add(item);
     }
 
     public static Controller getController() {

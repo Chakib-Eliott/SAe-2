@@ -14,7 +14,7 @@ public class VBoxResults extends VBox {
 
     public TableView tableView;
     private TextField textField;
-    private Label errorName;
+    private Label saveName;
 
     public VBoxResults(int margin) {
         super(margin);
@@ -78,17 +78,17 @@ public class VBoxResults extends VBox {
         this.getChildren().add(save);
 
         // ERROR si pas de nom entré
-        errorName = new Label("");
-        errorName.setId("error");
-        this.getChildren().add(errorName);
+        saveName = new Label("");
+        this.getChildren().add(saveName);
     }
 
     public TextField getTextField(){
         return textField;
     }
 
-    public void setErrorName(String text){
-        errorName.setText(text);
+    public void setSaveName(String text, String id){
+        saveName.setText(text);
+        saveName.setId(id);
     }
 
     public TableView getTableView(){
