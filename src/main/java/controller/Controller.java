@@ -3,9 +3,10 @@ package controller;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
+import utils.ReadWrite;
 import view.VBoxChoice;
 import view.VBoxResults;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Objects;
@@ -29,10 +30,12 @@ public class Controller implements EventHandler {
                     }else{
                         results.setErrorName("");
                         // Récupère un fichier avec le nom qu'on a mit
-                        File resultsFile = new File("results"+File.separator+results.getTextField().getText());
-                        //ReadWrite.write(resultsFile, );
+                        File resultsFile = new File("results"+File.separator+results.getTextField().getText()+".ser");
+                        TableView tableView = results.getTableView();
+                        for(Object elt : tableView.getItems()){
+                            ReadWrite.write(resultsFile, elt);
+                        }
                     }
-
                 }
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);

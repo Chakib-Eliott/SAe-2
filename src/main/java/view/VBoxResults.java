@@ -91,6 +91,10 @@ public class VBoxResults extends VBox {
         errorName.setText(text);
     }
 
+    public TableView getTableView(){
+        return tableView;
+    }
+
     public void launchSimulations(VBoxChoice.Simulation[] simulationsToDo) throws FileNotFoundException {
 
         for (VBoxChoice.Simulation simulation : simulationsToDo) {
