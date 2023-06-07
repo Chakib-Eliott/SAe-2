@@ -23,6 +23,9 @@ public class Solution {
      * Nombre de déplacements
      */
     int travel = 0;
+    /**
+     * Chemin
+     */
     ArrayList<Integer> solution;
     /**
      * Nombre de quêtes faites
