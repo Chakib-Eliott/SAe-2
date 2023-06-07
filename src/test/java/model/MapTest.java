@@ -2,9 +2,13 @@ package model;
 
 import org.junit.jupiter.api.*;
 import utils.Parsing;
-
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Classe de test de la classe Map
+ * @author Eliott-B
+ * @see Map
+ */
 @TestMethodOrder( MethodOrderer.OrderAnnotation.class)
 class MapTest {
 
@@ -16,6 +20,9 @@ class MapTest {
     void tearDown() {
     }
 
+    /**
+     * Test du constructeur Map
+     */
     @Test
     @Order(1)
     void Map() {

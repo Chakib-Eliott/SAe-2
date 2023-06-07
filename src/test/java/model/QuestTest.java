@@ -1,9 +1,13 @@
 package model;
 
 import org.junit.jupiter.api.*;
-
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Classe de test de la classe Quest
+ * @author Eliott-B
+ * @see Quest
+ */
 @TestMethodOrder( MethodOrderer.OrderAnnotation.class)
 class QuestTest {
 
@@ -15,6 +19,9 @@ class QuestTest {
     void tearDown() {
     }
 
+    /**
+     * Test sur la méthode compareTo
+     */
     @Test
     @Order(1)
     void compareTo() {

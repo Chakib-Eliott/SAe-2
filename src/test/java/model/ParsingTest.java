@@ -1,12 +1,14 @@
 package model;
+
 import org.junit.jupiter.api.*;
 import utils.Parsing;
-
 import java.io.File;
 import java.io.FileNotFoundException;
-
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Classe de test de la classe Parsing
+ */
 @TestMethodOrder( MethodOrderer.OrderAnnotation.class)
 class ParsingTest {
 
@@ -18,6 +20,9 @@ class ParsingTest {
     void tearDown() {
     }
 
+    /**
+     * Test de la méthode questParsing
+     */
     @Test
     @Order(1)
     void questParsing() {
@@ -103,6 +108,10 @@ class ParsingTest {
         System.out.println("Success!\n");
     }
 
+    /**
+     * Test de la méthode parsing
+     * @throws FileNotFoundException erreur si le fichier n'existe pas
+     */
     @Test
     @Order(2)
     void parsing() throws FileNotFoundException {
