@@ -12,7 +12,7 @@ public class RPGapp extends Application {
     public void start(Stage stage) {
         VBox root = new VBoxRoot();
 
-        Scene scene = new Scene(root, 1050, 700);
+        Scene scene = new Scene(root, 1050, 750);
         stage.setScene(scene);
 
         stage.setTitle("RPG Simulation");

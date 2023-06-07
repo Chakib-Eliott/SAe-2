@@ -14,7 +14,7 @@ public static final Controller controller = new Controller();
         // VBox des choix
         choice = new VBoxChoice(10);
         // VBox des résultats
-        results = new VBoxResults();
+        results = new VBoxResults(10);
 
         choice.prefWidthProperty().bind(this.widthProperty().multiply(0.5));
         results.prefWidthProperty().bind(this.widthProperty().multiply(0.5));
