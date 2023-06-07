@@ -1,5 +1,7 @@
 package view;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
@@ -10,6 +12,9 @@ import java.io.File;
 import java.util.Optional;
 
 public class VBoxChoice extends VBox {
+
+
+    Simulation simulationsToDo[] = new Simulation[20];
 
     public VBoxChoice() {
         super();
@@ -66,7 +71,7 @@ public class VBoxChoice extends VBox {
 
 
         TableColumn<Simulation, String> scenarioCol = new TableColumn<>("Scenario");
-        TableColumn<Solution, String> typeCol = new TableColumn<>("Type");
+        TableColumn<Simulation, String> typeCol = new TableColumn<>("Type");
 
         scenarioCol.setCellValueFactory(new PropertyValueFactory<>("scenario"));
         typeCol.setCellValueFactory(new PropertyValueFactory<>("type"));
@@ -110,6 +115,11 @@ public class VBoxChoice extends VBox {
                         simulation.setType(type);
                         // mettre à jour la ligne
                         simulations.refresh();
+                        // récupérer le numéro de ligne sur lequel on a cliqué
+                        int index = simulations.getItems().indexOf(simulation);
+                        // mettre à jour le tableau des simulations à faire
+                        simulationsToDo[index] = simulation;
+
                     }
                 }
             });
@@ -139,20 +149,61 @@ public class VBoxChoice extends VBox {
             for (int i = 0; i < nb; i++) {
                 if(defaultType.getValue() != null) {
                     simulations.getItems().add(new Simulation(scenario, defaultType.getValue()));
+                    for (int j = 0; j <  simulationsToDo.length; j++) {
+                        if (simulationsToDo[j] == null) {
+                            simulationsToDo[j] = new Simulation(scenario, defaultType.getValue());
+                            break;
+                        }
+                    }
                 }
                 else {
                     simulations.getItems().add(new Simulation(scenario));
+                    for (int j = 0; j <  simulationsToDo.length; j++) {
+                        if (simulationsToDo[j] == null) {
+                            simulationsToDo[j] = new Simulation(scenario, defaultType.getValue());
+                            break;
+                        }
+                    }
                 }
             }
+            System.out.println(simulationsToDo.length);
+            int i = 0;
+            for (Simulation simulation : simulationsToDo) {
+                if (simulation != null) {
+                    i++;
+                }
+            }
+            System.out.println(i);
         });
 
         Label title = new Label("Choix de simulations");
+        title.setId("title");
 
         // Lancer les simulations
         Button launchSimulations = new Button("Lancer les simulations");
         launchSimulations.setPrefWidth(200);
         launchSimulations.setPrefHeight(20);
         launchSimulations.setId("launchSimulations");
+        // envoyer les simulations vers VBoxResults
+        launchSimulations.setOnAction(new EventHandler<ActionEvent>() {
+            // récupérer les simulations
+//            ObservableList simulationsList = simulations.getItems();
+            // event
+            @Override
+            public void handle(ActionEvent event) {
+                // récupérer les simulations
+//                System.out.println("test");
+                addEventHandler(ActionEvent.ACTION, HBoxMain.getController());
+            }
+        });
+
+        launchSimulations.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                launchSimulations.addEventHandler(ActionEvent.ACTION, HBoxMain.getController());
+            }
+
+        });
 
         this.getChildren().addAll(
                 title,
@@ -190,6 +241,13 @@ public class VBoxChoice extends VBox {
         public void setType(String type) {
             this.type = type;
         }
+
+        public String toString() {
+            return "Scenario : " + scenario + " Type : " + type;
+        }
     }
 
+    public Simulation[] getSimulationsToDo() {
+        return simulationsToDo;
+    }
 }
