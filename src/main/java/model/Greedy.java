@@ -20,10 +20,10 @@ public class Greedy extends Solution{
     public Greedy(Scenario scenario, int type) {
         super(scenario);
         solution = algorithm(scenario, type);
-        Integer[] caracteristics = caracteristics(solution,scenario);
-        duration = caracteristics[0];
-        xp = caracteristics[2];
-        travel = caracteristics[1];
+        Integer[] characteristics = caracteristics(solution,scenario);
+        duration = characteristics[0];
+        xp = characteristics[2];
+        travel = characteristics[1];
         nbQuests = solution.size();
     }
 
