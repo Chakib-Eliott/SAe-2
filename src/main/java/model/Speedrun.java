@@ -67,7 +67,6 @@ public class Speedrun extends Solution {
                     i--;
                 }
             }
-
         }
         for(ArrayList<Integer> solution : solutions){
             int duration = 0;
@@ -86,6 +85,14 @@ public class Speedrun extends Solution {
                 }
             } else if (type == 2) { // déplacements minimaux
                 if(travel < bestTravel || bestTravel == 0){
+                    bestXp = xp;
+                    bestTravel = travel;
+                    bestDuration = duration;
+                    bestSolution = solution;
+                }
+            }
+            else { // 100%
+                if(xp > bestXp || bestXp == 0){
                     bestXp = xp;
                     bestTravel = travel;
                     bestDuration = duration;
