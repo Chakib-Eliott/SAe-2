@@ -4,6 +4,8 @@ import controller.Controller;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.*;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import java.io.File;
@@ -62,7 +64,40 @@ public class VBoxRoot extends VBox {
             }
         }
 
-        bar.getMenus().addAll(quit, save);
+        // Menu quitter
+        Menu info = new Menu("Info");
+        MenuItem menuInfo = new MenuItem("Informations");
+        info.getItems().add(menuInfo);
+        // Action d'une boite de dialogue pour confirmer la fermeture
+        menuInfo.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Informations");
+                alert.setHeaderText(null);
+                alert.setGraphic(null);
+                alert.setContentText("Cette application fait des simulations de parcours d'un RPG depuis des scénarios donnés." +
+                        "\n\nAuteurs : Eliott-B, Chak\nAnnée : 2023\nGit : https://github.com/Chakib-Eliott/SAe-2/\n\n" +
+                        "*Cliquez sur OUI si vous voulez copier le lien GitHub.*");
+                // Retire les boutons par default et met YES et OK
+                alert.getButtonTypes().clear();
+                alert.getButtonTypes().addAll(ButtonType.YES, ButtonType.OK);
+                // Met en présélectionné YES
+                Button yes = (Button) alert.getDialogPane().lookupButton( ButtonType.YES );
+                yes.setDefaultButton( true );
+
+                Optional<ButtonType> option = alert.showAndWait();
+
+                if(option.get() == ButtonType.YES){
+                    Clipboard clipboard = Clipboard.getSystemClipboard();
+                    ClipboardContent content = new ClipboardContent();
+                    content.putString("https://github.com/Chakib-Eliott/SAe-2/");
+                    clipboard.setContent(content);
+                }
+            }
+        });
+
+        bar.getMenus().addAll(quit, save, info);
         this.getChildren().add(bar);
 
         HBox main = new HBoxMain(5);
