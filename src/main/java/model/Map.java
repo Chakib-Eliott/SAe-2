@@ -63,21 +63,21 @@ public class Map {
      * @return String
      */
     public String toString() {
-        StringBuilder tostring = new StringBuilder();
+        StringBuilder string = new StringBuilder();
         for (Object[] objects : map) {
             for (int j = 0; j < objects.length - 1; j++) {
                 if (objects[j] == null) {
-                    tostring.append("x,");
+                    string.append("x,");
                 } else {
-                    tostring.append(((Quest) objects[j]).getId()).append(",");
+                    string.append(((Quest) objects[j]).getId()).append(",");
                 }
             }
             if (objects[objects.length - 1] == null) {
-                tostring.append("x\n");
+                string.append("x\n");
             } else {
-                tostring.append(((Quest) objects[objects.length - 1]).getId()).append("\n");
+                string.append(((Quest) objects[objects.length - 1]).getId()).append("\n");
             }
         }
-        return tostring.toString();
+        return string.toString();
     }
 }
