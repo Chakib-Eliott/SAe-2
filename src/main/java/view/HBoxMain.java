@@ -8,6 +8,7 @@ public class HBoxMain extends HBox {
 public static VBoxChoice choice;
 public static VBoxResults results;
 public static final Controller controller = new Controller();
+
     public HBoxMain(int margin) {
         super(margin);
 

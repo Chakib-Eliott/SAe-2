@@ -7,6 +7,7 @@ import view.VBoxChoice;
 import view.VBoxResults;
 
 import java.io.FileNotFoundException;
+import java.util.Objects;
 
 public class Controller implements EventHandler {
 
@@ -17,8 +18,13 @@ public class Controller implements EventHandler {
 
         if(event.getSource() instanceof Button) {
             try {
-                results.TableResults.getItems().clear();
-                results.launchSimulations(choice.getSimulationsToDo());
+                if(Objects.equals(((Button) event.getSource()).getId(), "launchSimulations")){
+                    results.TableResults.getItems().clear();
+                    results.launchSimulations(choice.getSimulationsToDo());
+                }
+                if(Objects.equals(((Button) event.getSource()).getId(), "saveResults")){
+                    System.out.println("save");
+                }
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
             }
