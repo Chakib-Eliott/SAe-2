@@ -13,3 +13,8 @@ Le rapport final ce trouve ici : [report/rapport_final.pdf](report/rapport_final
 ## Utilisation
 
 Pour utiliser l'application il faut lancer le fichier `RPGapp.java` qui se situe à ce chemin : [src/main/java/view/RPGapp.java](src/main/java/view/RPGapp.java).  
+
+## Documentation
+
+La JavaDoc est disponible dans le répertoire [JavaDoc](JavaDoc).  
+L'UML est disponible dans le répertoire [UMLDoc](UMLDoc). 
