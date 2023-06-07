@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
@@ -7,7 +8,7 @@ import java.util.*;
  * @author chak
  * @see Solution
  */
-public class Speedrun extends Solution {
+public class Speedrun extends Solution implements Serializable {
 
     /**
      * Solution optimisée pour le speedrun (optimale en termes de durée)

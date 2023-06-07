@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
@@ -8,7 +9,7 @@ import java.util.TreeMap;
  * @author chak
  * @see Solution
  */
-public class Greedy extends Solution{
+public class Greedy extends Solution implements Serializable {
 
     /**
      * Constructeur de la classe Solution
