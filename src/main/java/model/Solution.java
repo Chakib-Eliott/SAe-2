@@ -130,6 +130,63 @@ public class Solution {
     }
 
     /**
+     * Renvoie la durée de la solution
+     * @return Integer : durée
+     */
+    public Integer getDuration() {
+        return duration;
+    }
+
+    /**
+     * Renvoie la distance de la solution
+     * @return Integer : distance
+     */
+    public Integer getTravel() {
+        return travel;
+    }
+
+    /**
+     * Renvoie l'xp de la solution
+     * @return Integer : xp
+     */
+    public Integer getXp() {
+        return xp;
+    }
+
+    /**
+     * Renvoie la liste des quêtes de la solution
+     * @return ArrayList<Integer> : liste des quêtes
+     */
+    public ArrayList<Integer> getSolution() {
+        return solution;
+    }
+
+    /**
+     * Renvoie le nombre de quêtes de la solution
+     * @return int : nombre de quêtes
+     */
+    public int getNbQuests() {
+        return nbQuests;
+    }
+
+    /**
+     * Renvoie le nom de la solution
+     * @return String : nom
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Modifie le nom de la solution
+     * @param name nom
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    /**
      * Renvoie la solution et ses caractéristiques sous la forme suivante :
      * "Solution : [liste des quêtes]
      *  Durée : [durée]
