@@ -1,6 +1,6 @@
 /* Buttons javafx */
 /* Green button with radius */
-#launchSimulations {
+#launchSimulations, #saveResults {
     -fx-background-color: #006300;
     -fx-background-radius: 30;
     -fx-text-fill: #ffffff;
@@ -8,11 +8,11 @@
     -fx-font-weight: bold;
 }
 
-#launchSimulations:hover {
+#launchSimulations:hover, #saveResults:hover {
     -fx-background-color: #008000;
 }
 
-#launchSimulations:pressed {
+#launchSimulations:pressed, #saveResults:pressed {
     -fx-background-color: #004d00;
 }
 
