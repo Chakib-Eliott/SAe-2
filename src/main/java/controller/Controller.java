@@ -46,7 +46,6 @@ public class Controller implements EventHandler {
                             solutions[i] = (Solution) object;
                             i++;
                         }
-                        System.out.println(Arrays.toString(solutions));
                         ReadWrite.write(resultsFile, solutions);
                         // Vérifie que le fichier n'est pas déjà dans le menu
                         boolean contain = false;
