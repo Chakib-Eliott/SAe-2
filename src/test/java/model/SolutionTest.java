@@ -5,12 +5,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import utils.Parsing;
-
 import java.io.File;
 import java.io.FileNotFoundException;
-
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * Classe de test de la classe Solution
+ * @author Chak
+ * @see Solution
+ */
 public class SolutionTest {
     @BeforeEach
     void setUp() {
@@ -20,11 +23,13 @@ public class SolutionTest {
     void tearDown() {
     }
 
+    /**
+     * Test du constructeur Solution
+     * @throws FileNotFoundException erreur si fichier n'existe pas
+     */
     @Test
     @Order(1)
     void Solution() throws FileNotFoundException {
-
-
         System.out.println("Solution() test ...");
 
         int[][][][] toCheck = {
