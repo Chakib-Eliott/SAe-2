@@ -7,4 +7,5 @@ module com.example.ihm {
     exports com.example.ihm;
     exports model;
     exports view;
+    exports utils;
 }
