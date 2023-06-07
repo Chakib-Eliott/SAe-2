@@ -115,11 +115,14 @@ public class Scenario implements Cloneable {
      * @return String
      */
     public String toString (){
-        StringBuilder tostring = new StringBuilder(quest.size() + "\n");
-        for (Quest q : quest){
-            tostring.append(q.toString()).append("\n");
-        }
-        return tostring.toString();
+//        StringBuilder tostring = new StringBuilder(quest.size() + "\n");
+//        for (Quest q : quest){
+//            tostring.append(q.toString()).append("\n");
+//        }
+//        return tostring.toString();
+        return file.getName().substring(0, 1).toUpperCase() +
+                file.getName().replace(
+                        ".txt", "").replace("_", " ").substring(1);
     }
 
     /**
