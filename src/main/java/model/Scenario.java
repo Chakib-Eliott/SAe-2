@@ -1,4 +1,6 @@
 package model;
+import utils.Parsing;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

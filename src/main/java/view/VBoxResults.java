@@ -1,11 +1,10 @@
 package view;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import model.*;
+import utils.Parsing;
 
 import java.io.File;
 import java.io.FileNotFoundException;

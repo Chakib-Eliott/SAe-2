@@ -41,7 +41,7 @@ public class Quest implements Comparable<Quest> {
      * @param xp           Expérience gagnée à la fin de la quête
      * @param title        Titre de la quête
      */
-    Quest(int id, Integer[] position, Integer[][] precondition, Integer duration, Integer xp, String title) {
+    public Quest(int id, Integer[] position, Integer[][] precondition, Integer duration, Integer xp, String title) {
         this.id = id;
         this.position = position;
         this.precondition = precondition;

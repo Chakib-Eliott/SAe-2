@@ -1,10 +1,7 @@
 package model;
 
 import org.junit.jupiter.api.*;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
+import utils.Parsing;
 
 import static org.junit.jupiter.api.Assertions.*;
 

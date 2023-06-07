@@ -1,4 +1,7 @@
-package model;
+package utils;
+
+import model.Quest;
+import model.Scenario;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Objects;
