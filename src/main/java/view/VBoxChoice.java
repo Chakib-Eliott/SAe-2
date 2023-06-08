@@ -35,9 +35,7 @@ public class VBoxChoice extends VBox implements SolutionConstants {
         File folder = new File("data");
         File[] listOfFiles = folder.listFiles();
 
-
         // AJOUT DE SIMULATION
-
         ComboBox<String> scenarios = new ComboBox<>();
         assert listOfFiles != null;
         for (File file : listOfFiles) {
@@ -53,7 +51,6 @@ public class VBoxChoice extends VBox implements SolutionConstants {
         }
 
         scenarios.setValue(scenarios.getItems().get(0));
-
 
         // nombre de simulations (entier entre 1 et 20)
         ScrollBar nbSimulations = new ScrollBar();
@@ -76,15 +73,12 @@ public class VBoxChoice extends VBox implements SolutionConstants {
 
         Label nbSimulationsLabel = new Label("Nombre de simulations à ajouter :");
 
-
         nbSimulationsLabel.textProperty().bindBidirectional(nbSimulations.valueProperty(), new NumberStringConverter());
         nbSimulationsLabel.setPrefWidth(100);
         nbSimulationsLabel.setPrefHeight(20);
 
-
         // tableau des simulations
         TableView simulations = new TableView();
-
 
         TableColumn<Simulation, String> scenarioCol = new TableColumn<>("Scenario");
         TableColumn<Simulation, String> typeCol = new TableColumn<>("Type");
@@ -94,7 +88,6 @@ public class VBoxChoice extends VBox implements SolutionConstants {
 
         scenarioCol.setPrefWidth(100);
         typeCol.setPrefWidth(350);
-
 
         simulations.getColumns().addAll(scenarioCol, typeCol);
 
@@ -118,7 +111,6 @@ public class VBoxChoice extends VBox implements SolutionConstants {
                     alert.getButtonTypes().remove(ButtonType.OK);
                     alert.getButtonTypes().remove(ButtonType.CANCEL);
 
-
                     Optional<ButtonType> result = alert.showAndWait();
 
                     // si l'utilisateur a choisi un type de solution
@@ -141,7 +133,6 @@ public class VBoxChoice extends VBox implements SolutionConstants {
             });
             return row;
         });
-
 
         // choix du type de solution par défaut
         ComboBox<String> defaultType = new ComboBox<>();

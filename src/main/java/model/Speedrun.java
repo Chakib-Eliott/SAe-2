@@ -22,7 +22,7 @@ public class Speedrun extends Solution implements Serializable {
     public Speedrun(Scenario scenario, int type) throws ExceptionSolution {
         super(scenario);
         if(type != 0 && type != 1 && type != 2){
-            throw new ExceptionSolution(0);
+            throw new ExceptionSolution(1);
         }
         java.util.Map<ArrayList<Integer>, int[]> solution =
                 bestSolution(solutions(scenario, 0, new ArrayList<>(), new ArrayList<>()), scenario, type);
@@ -108,16 +108,9 @@ public class Speedrun extends Solution implements Serializable {
                     bestSolution = solution;
                 }
             }
-
         }
         java.util.Map<ArrayList<Integer>,int[]> map = new HashMap<>();
         map.put(bestSolution, new int[]{bestDuration, bestXp, bestTravel});
         return map;
     }
-
-
-
 }
-
-
-

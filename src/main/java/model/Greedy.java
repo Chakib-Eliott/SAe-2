@@ -22,7 +22,7 @@ public class Greedy extends Solution implements Serializable {
     public Greedy(Scenario scenario, int type) throws ExceptionSolution {
         super(scenario);
         if(type != 0 && type != 1){
-            throw new ExceptionSolution(0);
+            throw new ExceptionSolution(1);
         }
         solution = algorithm(scenario, type);
         Integer[] characteristics = caracteristics(solution,scenario);
@@ -56,7 +56,6 @@ public class Greedy extends Solution implements Serializable {
 
         // parcours du scénario pour récupérer toutes les distances entre la position et les quêtes
         while(scenario.getQuest().size() > 0) { // tant qu'il reste des quêtes
-
             Scenario doableScenario = doableScenario(scenario, doneQuests, xp); // quêtes faisables
 
             if(type != 1){ // si ce n'est pas la solution exhaustive
@@ -89,19 +88,13 @@ public class Greedy extends Solution implements Serializable {
             if(qDel.getId() != 0) { // si ce n'est pas la solution finale
                 xp += qDel.getXp(); // ajoute l'xp de la quête à l'xp totale
             }
-
             position = qDel.getPosition(); // se déplace vers la quête
-
-
-
         }
         if(type == 1){ // solution exhaustive
             doneQuests.addQuest(finale);
             solution.add(0);
             duration += finale.getDuration();
             duration += Map.distance(position, finale.getPosition());
-
-
         }
         this.nbQuests = doneQuests.getQuest().size();
         this.xp = xp;

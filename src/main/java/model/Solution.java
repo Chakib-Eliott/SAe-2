@@ -74,7 +74,6 @@ public class Solution implements Serializable, SolutionConstants {
                         precond1 = true; // la première précondition est vérifiée
                     }
                 }
-
             }
             boolean precond2 = false;
             for(Integer i : precond[1]) {
@@ -84,7 +83,6 @@ public class Solution implements Serializable, SolutionConstants {
                         precond2 = true; // la deuxième précondition est vérifiée
                     }
                 }
-
             }
             if (precond[0][0] == null && precond[0][1] == null) {
                 precond1 = true;
@@ -95,7 +93,6 @@ public class Solution implements Serializable, SolutionConstants {
 
             if(precond1 && precond2) { // si les deux préconditions sont vérifiées
                 if(!doneQuests.getQuest().contains(q)) { // on ne peut pas faire une quête deux fois
-
                     if (q.getId() != 0) {
                         doableScenario.addQuest(q); // ajoute la quête à la liste des quêtes faisables
                     } else {
@@ -122,9 +119,9 @@ public class Solution implements Serializable, SolutionConstants {
         duration += Map.distance(new Integer[]{0, 0}, scenario.getQuestById(solution.get(0)).getPosition());
         travel += Map.distance(new Integer[]{0, 0}, scenario.getQuestById(solution.get(0)).getPosition());
         for(Integer i : solution){
-
             if(i != 0){
-                xp += scenario.getQuestById(i).getXp();}
+                xp += scenario.getQuestById(i).getXp();
+            }
 
             duration += scenario.getQuestById(i).getDuration();
 
@@ -213,7 +210,6 @@ public class Solution implements Serializable, SolutionConstants {
         }
         this.name = name;
     }
-
 
     /**
      * Renvoie la solution et ses caractéristiques sous la forme suivante :

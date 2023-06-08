@@ -138,7 +138,6 @@ public class VBoxResults extends VBox implements SolutionConstants {
      * @throws FileNotFoundException Erreur si le fichier n'existe pas
      */
     public void launchSimulations(VBoxChoice.Simulation[] simulationsToDo) throws FileNotFoundException, ExceptionSolution {
-
         for (VBoxChoice.Simulation simulation : simulationsToDo) {
             if (simulation == null) {
                 continue;
@@ -165,12 +164,9 @@ public class VBoxResults extends VBox implements SolutionConstants {
                 }
             }
             if (solution != null) {
-
                 solution.setName(simulation.getType());
                 tableView.getItems().add(solution);
-
             }
-
         }
     }
 }
